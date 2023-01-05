@@ -4,6 +4,7 @@ import {
   Mumble,
   WriteComponent,
   Heading,
+  Paragraph,
 } from "@smartive-education/design-system-component-library-yeahyeahyeahyeah";
 
 export default function Home() {
@@ -47,16 +48,23 @@ export default function Home() {
         <div tw="container">
           <div tw="mt-32">
             <Heading
-              label="Component Testing"
+              label="Willkommen auf Mumble"
               color="violet"
               tag="h2"
               size="default"
               spacing="32"
             />
+            <Heading
+              label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
+              color="light"
+              tag="h4"
+              size="large"
+              spacing="32"
+            />
           </div>
           <div tw="mb-32">
             <WriteComponent
-              variant="start"
+              variant="write"
               spacing="64"
               form={{
                 editType: "textarea",
@@ -76,7 +84,6 @@ export default function Home() {
               }}
               setText={function noRefCheck() {}}
               startHeading="Hey, was läuft?"
-              startParagraph="Schreib deinen ersten Mumble, oder folge einem User."
               upload={{
                 fCallBack: function noRefCheck() {},
                 icon: "upload",
@@ -101,7 +108,7 @@ export default function Home() {
             />
           </div>
           <Mumble
-            variant="detailpage"
+            variant="timeline"
             comment={{
               fCallBack: function noRefCheck() {},
               quantity: 0,
@@ -152,7 +159,7 @@ export default function Home() {
             }}
           />
           <Mumble
-            variant="response"
+            variant="timeline"
             comment={{
               fCallBack: function noRefCheck() {},
               quantity: 0,
@@ -203,6 +210,7 @@ export default function Home() {
             }}
           />
           <Mumble
+            variant="timeline"
             comment={{
               fCallBack: function noRefCheck() {},
               quantity: 0,
@@ -251,7 +259,6 @@ export default function Home() {
               },
               variant: "xlarge",
             }}
-            variant="response"
           />
         </div>
       </div>
