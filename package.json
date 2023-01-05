@@ -11,7 +11,7 @@
 	"dependencies": {
 		"@babel/core": "^7.20.12",
 		"next": "13.1.1",
-		"@smartive-education/design-system-component-library-yeahyeahyeah": "^0.0.10-dev",
+		"@smartive-education/design-system-component-library-yeahyeahyeahyeah": "1.7.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
@@ -31,7 +31,7 @@
 	},
 	"babelMacros": {
 		"twin": {
-			"config": "node_modules/@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.config.js",
+			"config": "node_modules/@smartive-education/design-system-component-library-yeahyeahyeahyeah/tailwind.config.js",
 			"preset": "styled-components"
 		}
 	}

@@ -9,7 +9,7 @@ import {
 	Down,
 	Edit,
 	Mumble,
-} from "@smartive-education/design-system-component-library-yeahyeahyeah"
+} from "@smartive-education/design-system-component-library-yeahyeahyeahyeah"
 
 export default function Home() {
 	const handleAvatar = () => {

@@ -6,7 +6,7 @@ const includedDirs = [
 	path.resolve(__dirname, "styles"),
 	path.resolve(
 		__dirname,
-		"node_modules/@smartive-education/design-system-component-library-yeahyeahyeah/dist",
+		"node_modules/@smartive-education/design-system-component-library-yeahyeahyeahyeah/dist",
 	),
 ]
 

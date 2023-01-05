@@ -1,5 +1,5 @@
 // pages/_app.tsx
-import "@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css"
+import "@smartive-education/design-system-component-library-yeahyeahyeahyeah/tailwind.css"
 import type { AppProps } from "next/app"
 import GlobalStyles from "../styles/GlobalStyles"
 
