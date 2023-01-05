@@ -1,29 +1,268 @@
-import tw from "twin.macro"
+import tw from "twin.macro";
 import {
-	Calendar,
-	Button,
-	Logo,
-	LogoMumble,
-	Cancel,
-	Checkmark,
-	Down,
-	Edit,
-	Mumble,
-} from "@smartive-education/design-system-component-library-yeahyeahyeahyeah"
+  Navigation,
+  Mumble,
+  WriteComponent,
+  Heading,
+} from "@smartive-education/design-system-component-library-yeahyeahyeahyeah";
 
 export default function Home() {
-	const handleAvatar = () => {
-		console.log("avatar")
-	}
-	return (
-		<>
-			<Button
+  const handleAvatar = () => {
+    console.log("avatar");
+  };
+  return (
+    <>
+      <div tw="bg-slate-200">
+        <Navigation
+          type={"default"}
+          avatar={{
+            label: "Label",
+            fCallBack: () => console.log("profile"),
+            src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+            variant: "profile",
+          }}
+          logo={{
+            variant: "white",
+            fCallBack: () => console.log("logo"),
+            href: "#",
+            title: "Mumble Logo",
+            alignment: "horizontal",
+            isNavigation: true,
+          }}
+          logout={{
+            fCallBack: () => console.log("logout"),
+            icon: "logout",
+            label: "Logout",
+            variant: "default",
+            disabled: true,
+          }}
+          settings={{
+            fCallBack: () => console.log("settings"),
+            icon: "settings",
+            label: "Settings",
+            variant: "default",
+            disabled: true,
+          }}
+        />
+        <div tw="container">
+          <div tw="mt-32">
+            <Heading
+              label="Component Testing"
+              color="violet"
+              tag="h2"
+              size="default"
+              spacing="32"
+            />
+          </div>
+          <div tw="mb-32">
+            <WriteComponent
+              variant="start"
+              spacing="64"
+              form={{
+                editType: "textarea",
+                autoComplete: "off",
+                required: false,
+                errorMessage: "Da ist etwas schief gelaufen",
+                placeholder: "Na, was meinste dazu ...?",
+              }}
+              send={{
+                fCallBack: function noRefCheck() {},
+                icon: "send",
+                label: "Absenden",
+                size: "small",
+                type: "button",
+                variant: "violet",
+                width: "full",
+              }}
+              setText={function noRefCheck() {}}
+              startHeading="Hey, was läuft?"
+              startParagraph="Schreib deinen ersten Mumble, oder folge einem User."
+              upload={{
+                fCallBack: function noRefCheck() {},
+                icon: "upload",
+                label: "Bild hochladen",
+                size: "small",
+                type: "button",
+                variant: "slate",
+                width: "full",
+              }}
+              user={{
+                avatar: {
+                  alt: "Family Guy goes Mumble",
+                  src: "https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif",
+                },
+                label: "Hey, was läuft?",
+                username: {
+                  href: "#",
+                  label: "Username",
+                },
+                variant: "recommended", // wrong placed
+              }}
+            />
+          </div>
+          <Mumble
+            variant="detailpage"
+            comment={{
+              fCallBack: function noRefCheck() {},
+              quantity: 0,
+            }}
+            img={{
+              alt: "This is a profile picture!",
+              fCallBack: function noRefCheck() {},
+              src: "https://shorturl.at/nEO01",
+            }}
+            like={{
+              fCallBack: function noRefCheck() {},
+              quantity: 999,
+            }}
+            share={{
+              fCallBack: function noRefCheck() {},
+              label: "Share",
+            }}
+            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+            user={{
+              avatar: {
+                alt: "avatar",
+                buttonCallBack: function noRefCheck() {},
+                imageCallBack: function noRefCheck() {},
+                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+              },
+              joined: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Joined",
+              },
+              label: "Display Name",
+              location: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Location",
+              },
+              timestamp: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Timestamp",
+              },
+              username: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Username",
+              },
+              variant: "xlarge",
+            }}
+          />
+          <Mumble
+            variant="response"
+            comment={{
+              fCallBack: function noRefCheck() {},
+              quantity: 0,
+            }}
+            img={{
+              alt: "This is a profile picture!",
+              fCallBack: function noRefCheck() {},
+              src: "https://shorturl.at/nEO01",
+            }}
+            like={{
+              fCallBack: function noRefCheck() {},
+              quantity: 999,
+            }}
+            share={{
+              fCallBack: function noRefCheck() {},
+              label: "Share",
+            }}
+            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+            user={{
+              avatar: {
+                alt: "avatar",
+                buttonCallBack: function noRefCheck() {},
+                imageCallBack: function noRefCheck() {},
+                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+              },
+              joined: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Joined",
+              },
+              label: "Display Name",
+              location: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Location",
+              },
+              timestamp: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Timestamp",
+              },
+              username: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Username",
+              },
+              variant: "xlarge",
+            }}
+          />
+          <Mumble
+            comment={{
+              fCallBack: function noRefCheck() {},
+              quantity: 0,
+            }}
+            img={{
+              alt: "This is a profile picture!",
+              fCallBack: function noRefCheck() {},
+              src: "https://shorturl.at/nEO01",
+            }}
+            like={{
+              fCallBack: function noRefCheck() {},
+              quantity: 999,
+            }}
+            share={{
+              fCallBack: function noRefCheck() {},
+              label: "Share",
+            }}
+            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+            user={{
+              avatar: {
+                alt: "avatar",
+                buttonCallBack: function noRefCheck() {},
+                imageCallBack: function noRefCheck() {},
+                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+              },
+              joined: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Joined",
+              },
+              label: "Display Name",
+              location: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Location",
+              },
+              timestamp: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Timestamp",
+              },
+              username: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Username",
+              },
+              variant: "xlarge",
+            }}
+            variant="response"
+          />
+        </div>
+      </div>
+
+      {/* <Button
 				variant="pink"
 				size="large"
 				label="Roli Chicken Fest"
 				icon="logo"
 				width="default"
-			/>
+				/>
 			<Button
 				variant="pink"
 				size="large"
@@ -91,7 +330,7 @@ export default function Home() {
 					},
 					variant: "xlarge",
 				}}
-			/>
-		</>
-	)
+			/> */}
+    </>
+  );
 }
