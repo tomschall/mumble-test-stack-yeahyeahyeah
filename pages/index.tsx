@@ -62,7 +62,7 @@ export default function Home() {
               spacing="32"
             />
           </div>
-          <div tw="mb-32">
+          <div tw="mb-16">
             <WriteComponent
               variant="write"
               spacing="64"
