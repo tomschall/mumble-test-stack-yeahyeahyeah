@@ -369,10 +369,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@smartive-education/design-system-component-library-yeahyeahyeahyeah@1.7.0":
-  version "1.7.0"
-  resolved "https://npm.pkg.github.com/download/@smartive-education/design-system-component-library-yeahyeahyeahyeah/1.7.0/50df27aec43c20689e66627c2c45e443c413416c#50df27aec43c20689e66627c2c45e443c413416c"
-  integrity sha512-V+jz0pStVYiiocBOLWAF9SqXV8u0Pfc4Za8/mOsEv/hvHflg9+qeNDQdJgs8bUayQkAgdZGcbdeIhZMkeWRigA==
+"@smartive-education/design-system-component-library-yeahyeahyeah@1.8.0":
+  version "1.8.0"
+  resolved "https://npm.pkg.github.com/download/@smartive-education/design-system-component-library-yeahyeahyeah/1.8.0/f1baf32a0f5a53d8ebdee6ec117dc02a5d9c63d8#f1baf32a0f5a53d8ebdee6ec117dc02a5d9c63d8"
+  integrity sha512-aggKTnrIYZw+C2GZSXTlJwWovgI1erhgShNUILhx1cmETG+j2WrI9vzjnLG2pDKLtqHO+BJajYeAWqlVvN9+2A==
   dependencies:
     "@tailwindcss/forms" "^0.5.3"
 
