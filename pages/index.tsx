@@ -58,7 +58,7 @@ export default function Home() {
               label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
               color="light"
               tag="h4"
-              size="large"
+              size="default"
               spacing="32"
             />
           </div>
