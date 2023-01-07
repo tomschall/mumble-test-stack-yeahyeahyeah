@@ -16,7 +16,7 @@ export default function Detailview() {
   return (
     <>
       <Navi />
-      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full">
+      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
         <div tw="w-full mb-32">
           <Navigation
             logo={{
@@ -48,6 +48,62 @@ export default function Detailview() {
           />
         </div>
         <Container layout="box">
+          <Mumble
+            comment={{
+              fCallBack: function noRefCheck() {},
+              quantity: 0,
+            }}
+            img={{
+              alt: "This is a profile picture!",
+              fCallBack: function noRefCheck() {},
+              src: "https://shorturl.at/nEO01",
+            }}
+            like={{
+              fCallBack: function noRefCheck() {},
+              quantity: 999,
+            }}
+            mbSpacing="0"
+            share={{
+              fCallBack: function noRefCheck() {},
+              label: "Share",
+            }}
+            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+            user={{
+              avatar: {
+                alt: "avatar",
+                buttonCallBack: function noRefCheck() {},
+                imageCallBack: function noRefCheck() {},
+                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+              },
+              joined: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Joined",
+                type: "joined",
+              },
+              label: "Display Name",
+              location: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Location",
+                type: "location",
+              },
+              timestamp: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Timestamp",
+                type: "timestamp",
+              },
+              username: {
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Username",
+                type: "username",
+              },
+              variant: "xlarge",
+            }}
+            variant="detailpage"
+          />
           <Mumble
             comment={{
               fCallBack: function noRefCheck() {},
@@ -102,7 +158,7 @@ export default function Detailview() {
               },
               variant: "write",
             }}
-            variant="timeline"
+            variant="response"
           />
           <Mumble
             comment={{
