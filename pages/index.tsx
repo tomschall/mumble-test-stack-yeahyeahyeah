@@ -15,7 +15,7 @@ export default function Detailview() {
         <Navi />
         <Container layout="plain">
           <Heading
-            label="Timeline"
+            label="Willkommen auf Mumble"
             color="violet"
             tag="h2"
             size="default"
@@ -64,7 +64,7 @@ export default function Detailview() {
               user={{
                 avatar: {
                   alt: "Family Guy goes Mumble",
-                  src: "https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif",
+                  src: "https://picsum.photos/40/40",
                 },
                 label: "Hey, was läuft?",
                 username: {
@@ -76,15 +76,68 @@ export default function Detailview() {
               }}
             />
           </div>
+          <div tw="mb-32">
+            <Mumble
+              comment={{
+                fCallBack: function noRefCheck() {},
+                quantity: 0,
+              }}
+              img={{
+                alt: "This is a profile picture!",
+                fCallBack: function noRefCheck() {},
+                src: "",
+              }}
+              like={{
+                fCallBack: function noRefCheck() {},
+                quantity: 999,
+              }}
+              mbSpacing="32"
+              share={{
+                fCallBack: function noRefCheck() {},
+                label: "Share",
+              }}
+              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+              user={{
+                avatar: {
+                  alt: "avatar",
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                },
+                joined: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                },
+                label: "Display Name",
+                location: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                },
+                timestamp: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                },
+                username: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                },
+                variant: "xlarge",
+              }}
+              variant="timeline"
+            />
+          </div>
           <Mumble
             comment={{
               fCallBack: function noRefCheck() {},
               quantity: 0,
-            }}
-            img={{
-              alt: "This is a profile picture!",
-              fCallBack: function noRefCheck() {},
-              src: "https://shorturl.at/nEO01",
             }}
             like={{
               fCallBack: function noRefCheck() {},
@@ -140,7 +193,7 @@ export default function Detailview() {
             img={{
               alt: "This is a profile picture!",
               fCallBack: function noRefCheck() {},
-              src: "https://shorturl.at/nEO01",
+              src: "https://picsum.photos/640/360",
             }}
             like={{
               fCallBack: function noRefCheck() {},
