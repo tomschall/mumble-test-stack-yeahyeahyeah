@@ -1,6 +1,8 @@
+// withTwin.js
 const path = require("path")
 
 // The folders containing files importing twin.macro
+// We have to add the mumble npm package also, because we also import twin.macro inside the package
 const includedDirs = [
 	path.resolve(__dirname, "pages"),
 	path.resolve(__dirname, "styles"),
@@ -18,6 +20,7 @@ module.exports = function withTwin(nextConfig) {
 			config.module = config.module || {}
 			config.module.rules = config.module.rules || []
 			config.module.rules.push({
+				// mumble npm package components are pure js files, therefor js has also to be included
 				test: /\.(tsx|ts|js)$/,
 				include: includedDirs,
 				use: [
@@ -27,6 +30,7 @@ module.exports = function withTwin(nextConfig) {
 						options: {
 							sourceMaps: dev,
 							plugins: [
+								require.resolve("babel-plugin-twin"),
 								require.resolve("babel-plugin-macros"),
 								[
 									require.resolve(
