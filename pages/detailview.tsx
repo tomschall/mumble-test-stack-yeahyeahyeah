@@ -158,7 +158,7 @@ export default function Detailview() {
               },
               variant: "small",
             }}
-            variant="timeline"
+            variant="response"
           />
         </Container>
       </div>
