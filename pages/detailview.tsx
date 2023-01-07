@@ -47,69 +47,7 @@ export default function Detailview() {
             }}
           />
         </div>
-        <Container layout="plain">
-          <Heading
-            label="Timeline"
-            color="violet"
-            tag="h2"
-            size="default"
-            mbSpacing="32"
-          />
-          <Heading
-            label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
-            color="light"
-            tag="h4"
-            size="default"
-            mbSpacing="32"
-          />
-        </Container>
-        <Container layout="plain">
-          <div tw="mb-32">
-            <WriteComponent
-              variant="write"
-              mbSpacing="64"
-              form={{
-                editType: "textarea",
-                autoComplete: "off",
-                required: false,
-                errorMessage: "Da ist etwas schief gelaufen",
-                placeholder: "Na, was meinste dazu ...?",
-              }}
-              send={{
-                fCallBack: function noRefCheck() {},
-                icon: "send",
-                label: "Absenden",
-                size: "small",
-                type: "button",
-                variant: "violet",
-                width: "full",
-              }}
-              setText={function noRefCheck() {}}
-              startHeading="Hey, was läuft?"
-              upload={{
-                fCallBack: function noRefCheck() {},
-                icon: "upload",
-                label: "Bild hochladen",
-                size: "small",
-                type: "button",
-                variant: "slate",
-                width: "full",
-              }}
-              user={{
-                avatar: {
-                  alt: "Family Guy goes Mumble",
-                  src: "https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif",
-                },
-                label: "Hey, was läuft?",
-                username: {
-                  href: "#",
-                  label: "Username",
-                  type: "username",
-                },
-                variant: "recommended",
-              }}
-            />
-          </div>
+        <Container layout="box">
           <Mumble
             comment={{
               fCallBack: function noRefCheck() {},
@@ -162,7 +100,7 @@ export default function Detailview() {
                 href: "",
                 label: "Username",
               },
-              variant: "xlarge",
+              variant: "write",
             }}
             variant="timeline"
           />
@@ -218,7 +156,7 @@ export default function Detailview() {
                 href: "",
                 label: "Username",
               },
-              variant: "xlarge",
+              variant: "small",
             }}
             variant="timeline"
           />
