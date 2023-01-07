@@ -186,7 +186,7 @@ export default function Detailview() {
                 fCallBack: function noRefCheck() {},
                 quantity: 999,
               }}
-              mbSpacing="32"
+              mbSpacing="0"
               share={{
                 fCallBack: function noRefCheck() {},
                 label: "Share",
@@ -297,7 +297,7 @@ export default function Detailview() {
                 fCallBack: function noRefCheck() {},
                 quantity: 999,
               }}
-              mbSpacing="32"
+              mbSpacing="0"
               share={{
                 fCallBack: function noRefCheck() {},
                 label: "Share",

@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Navi from "./includes/navi";
 import {
+  Checkbox,
+  Container,
+  Heading,
   Navigation,
   Mumble,
   WriteComponent,
-  Heading,
-  Container,
+  ImageContainer,
+  Avatar,
+  User,
 } from "@smartive-education/design-system-component-library-yeahyeahyeah";
 
 export default function Profilepage() {
@@ -17,7 +21,118 @@ export default function Profilepage() {
     <>
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
         <Navi />
+        <div tw="container py-16 h-[500px]">
+          <div tw="relative">
+            <ImageContainer src="https://picsum.photos/640/360" alt="Picture" />
+            <div tw="relative -top-[100px] flex flex-row justify-between items-end z-10">
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="xlarge"
+              />
+              <div tw="relative left-32">
+                <Avatar
+                  src="https://picsum.photos/640/360"
+                  alt="Picture"
+                  variant="edit"
+                />
+              </div>
+            </div>
+          </div>
+          <Checkbox selection="mumbles" />
+        </div>
         <Container layout="box">
+          <div tw="mb-32">
+            <Mumble
+              comment={{
+                fCallBack: function noRefCheck() {},
+                quantity: 0,
+              }}
+              img={{
+                alt: "This is a profile picture!",
+                fCallBack: function noRefCheck() {},
+                src: "",
+              }}
+              like={{
+                fCallBack: function noRefCheck() {},
+                quantity: 999,
+              }}
+              mbSpacing="32"
+              share={{
+                fCallBack: function noRefCheck() {},
+                label: "Share",
+              }}
+              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+              user={{
+                avatar: {
+                  alt: "avatar",
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                },
+                joined: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                },
+                label: "Display Name",
+                location: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                },
+                timestamp: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                },
+                username: {
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                },
+                variant: "xlarge",
+              }}
+              variant="timeline"
+            />
+          </div>
           <Mumble
             comment={{
               fCallBack: function noRefCheck() {},
