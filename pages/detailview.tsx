@@ -9,44 +9,10 @@ import {
 } from "@smartive-education/design-system-component-library-yeahyeahyeah";
 
 export default function Detailview() {
-  const handleAvatar = () => {
-    console.log("avatar clicked");
-  };
-
   return (
     <>
-      <Navi />
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
-        <div tw="w-full mb-32">
-          <Navigation
-            logo={{
-              title: "Mumble Logo",
-              href: "#",
-              variant: "white",
-              alignment: "horizontal",
-              fCallBack: () => console.log("logo"),
-              isNavigation: true,
-            }}
-            avatar={{
-              label: "Label",
-              variant: "profile",
-              fCallBack: handleAvatar,
-              src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-            }}
-            settings={{
-              label: "Detailview",
-              variant: "default",
-              fCallBack: () => console.log("settings"),
-              icon: "settings",
-            }}
-            logout={{
-              label: "Logout",
-              variant: "default",
-              fCallBack: () => console.log("logout"),
-              icon: "logout",
-            }}
-          />
-        </div>
+        <Navi />
         <Container layout="box">
           <Mumble
             comment={{
