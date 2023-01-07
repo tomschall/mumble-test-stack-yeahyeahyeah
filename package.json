@@ -11,7 +11,7 @@
 	"dependencies": {
 		"@babel/core": "^7.20.12",
 		"next": "13.1.1",
-		"@smartive-education/design-system-component-library-yeahyeahyeah": "1.8.0",
+		"@smartive-education/design-system-component-library-yeahyeahyeah": "1.8.5",
 		"@tailwindcss/forms": "^0.5.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

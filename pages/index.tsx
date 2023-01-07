@@ -5,7 +5,7 @@ import {
 	WriteComponent,
 	Heading,
 	Paragraph,
-} from "@smartive-education/design-system-component-library-yeahyeahyeahyeah"
+} from "@smartive-education/design-system-component-library-yeahyeahyeah"
 
 export default function Home() {
 	const handleAvatar = () => {
@@ -15,34 +15,31 @@ export default function Home() {
 		<>
 			<div tw="bg-slate-200">
 				<Navigation
-					type={"default"}
-					avatar={{
-						label: "Label",
-						fCallBack: () => console.log("profile"),
-						src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-						variant: "profile",
-					}}
 					logo={{
-						variant: "white",
-						fCallBack: () => console.log("logo"),
-						href: "#",
 						title: "Mumble Logo",
+						href: "#",
+						variant: "white",
 						alignment: "horizontal",
+						fCallBack: () => console.log("logo"),
 						isNavigation: true,
 					}}
-					logout={{
-						fCallBack: () => console.log("logout"),
-						icon: "logout",
-						label: "Logout",
-						variant: "default",
-						disabled: true,
+					avatar={{
+						label: "Label",
+						variant: "profile",
+						fCallBack: () => console.log("profile"),
+						src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
 					}}
 					settings={{
-						fCallBack: () => console.log("settings"),
-						icon: "settings",
 						label: "Settings",
 						variant: "default",
-						disabled: true,
+						fCallBack: () => console.log("settings"),
+						icon: "settings",
+					}}
+					logout={{
+						label: "Logout",
+						variant: "default",
+						fCallBack: () => console.log("logout"),
+						icon: "logout",
 					}}
 				/>
 				<div tw="container">
@@ -102,164 +99,179 @@ export default function Home() {
 								username: {
 									href: "#",
 									label: "Username",
+									type: "username",
 								},
 								variant: "recommended", // wrong placed
 							}}
 						/>
 					</div>
-					<Mumble
-						variant="timeline"
-						comment={{
-							fCallBack: function noRefCheck() {},
-							quantity: 0,
-						}}
-						img={{
-							alt: "This is a profile picture!",
-							fCallBack: function noRefCheck() {},
-							src: "https://shorturl.at/nEO01",
-						}}
-						like={{
-							fCallBack: function noRefCheck() {},
-							quantity: 999,
-						}}
-						share={{
-							fCallBack: function noRefCheck() {},
-							label: "Share",
-						}}
-						text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-						user={{
-							avatar: {
-								alt: "avatar",
-								buttonCallBack: function noRefCheck() {},
-								imageCallBack: function noRefCheck() {},
-								src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-							},
-							joined: {
+					<div tw="mb-16">
+						<Mumble
+							variant="timeline"
+							comment={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Joined",
-							},
-							label: "Display Name",
-							location: {
+								quantity: 0,
+							}}
+							like={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Location",
-							},
-							timestamp: {
+								quantity: 999,
+							}}
+							share={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Timestamp",
-							},
-							username: {
+								label: "Share",
+							}}
+							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+							img={{
+								alt: "This is a profile picture!",
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Username",
-							},
-							variant: "xlarge",
-						}}
-					/>
-					<Mumble
-						variant="timeline"
-						comment={{
-							fCallBack: function noRefCheck() {},
-							quantity: 0,
-						}}
-						img={{
-							alt: "This is a profile picture!",
-							fCallBack: function noRefCheck() {},
-							src: "https://shorturl.at/nEO01",
-						}}
-						like={{
-							fCallBack: function noRefCheck() {},
-							quantity: 999,
-						}}
-						share={{
-							fCallBack: function noRefCheck() {},
-							label: "Share",
-						}}
-						text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-						user={{
-							avatar: {
-								alt: "avatar",
-								buttonCallBack: function noRefCheck() {},
-								imageCallBack: function noRefCheck() {},
-								src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-							},
-							joined: {
+								src: "https://learnenglishteens.britishcouncil.org/sites/teens/files/field/image/istock-898916122.jpg",
+							}}
+							user={{
+								avatar: {
+									alt: "avatar",
+									buttonCallBack: function noRefCheck() {},
+									imageCallBack: function noRefCheck() {},
+									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+								},
+								joined: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Joined",
+									type: "joined",
+								},
+								label: "Display Name",
+								location: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Location",
+									type: "location",
+								},
+								timestamp: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Timestamp",
+									type: "timestamp",
+								},
+								username: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Username",
+									type: "username",
+								},
+								variant: "xlarge",
+							}}
+						/>
+					</div>
+					<div tw="mb-16">
+						<Mumble
+							variant="timeline"
+							comment={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Joined",
-							},
-							label: "Display Name",
-							location: {
+								quantity: 0,
+							}}
+							like={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Location",
-							},
-							timestamp: {
+								quantity: 999,
+							}}
+							share={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Timestamp",
-							},
-							username: {
+								label: "Share",
+							}}
+							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+							user={{
+								avatar: {
+									alt: "avatar",
+									buttonCallBack: function noRefCheck() {},
+									imageCallBack: function noRefCheck() {},
+									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+								},
+								joined: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Joined",
+									type: "joined",
+								},
+								label: "Display Name",
+								location: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Location",
+									type: "location",
+								},
+								timestamp: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Timestamp",
+									type: "timestamp",
+								},
+								username: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Username",
+									type: "username",
+								},
+								variant: "xlarge",
+							}}
+						/>
+					</div>
+					<div tw="mb-16">
+						<Mumble
+							variant="timeline"
+							comment={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Username",
-							},
-							variant: "xlarge",
-						}}
-					/>
-					<Mumble
-						variant="timeline"
-						comment={{
-							fCallBack: function noRefCheck() {},
-							quantity: 0,
-						}}
-						img={{
-							alt: "This is a profile picture!",
-							fCallBack: function noRefCheck() {},
-							src: "https://shorturl.at/nEO01",
-						}}
-						like={{
-							fCallBack: function noRefCheck() {},
-							quantity: 999,
-						}}
-						share={{
-							fCallBack: function noRefCheck() {},
-							label: "Share",
-						}}
-						text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-						user={{
-							avatar: {
-								alt: "avatar",
-								buttonCallBack: function noRefCheck() {},
-								imageCallBack: function noRefCheck() {},
-								src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-							},
-							joined: {
+								quantity: 0,
+							}}
+							img={{
+								alt: "This is a profile picture!",
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Joined",
-							},
-							label: "Display Name",
-							location: {
+								src: "https://shorturl.at/nEO01",
+							}}
+							like={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Location",
-							},
-							timestamp: {
+								quantity: 999,
+							}}
+							share={{
 								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Timestamp",
-							},
-							username: {
-								fCallBack: function noRefCheck() {},
-								href: "",
-								label: "Username",
-							},
-							variant: "xlarge",
-						}}
-					/>
+								label: "Share",
+							}}
+							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+							user={{
+								avatar: {
+									alt: "avatar",
+									buttonCallBack: function noRefCheck() {},
+									imageCallBack: function noRefCheck() {},
+									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+								},
+								joined: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Joined",
+									type: "joined",
+								},
+								label: "Display Name",
+								location: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Location",
+									type: "location",
+								},
+								timestamp: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Timestamp",
+									type: "timestamp",
+								},
+								username: {
+									fCallBack: function noRefCheck() {},
+									href: "",
+									label: "Username",
+									type: "username",
+								},
+								variant: "xlarge",
+							}}
+						/>
+					</div>
+					<div tw="mt-64">&nbsp;</div>
 				</div>
 			</div>
 
