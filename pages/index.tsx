@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <>
-      <div tw="flex flex-col justify-center items-start bg-slate-200 w-full h-full">
+      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full">
         <div tw="w-full mb-32">
           <Navigation
             logo={{
