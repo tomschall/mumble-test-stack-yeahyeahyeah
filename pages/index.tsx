@@ -3,6 +3,7 @@ import {
   Mumble,
   WriteComponent,
   Heading,
+  Container,
 } from "@smartive-education/design-system-component-library-yeahyeahyeah";
 
 export default function Home() {
@@ -56,6 +57,8 @@ export default function Home() {
             size="default"
             mbSpacing="32"
           />
+        </Container>
+        <Container layout="box">
           <WriteComponent
             variant="write"
             mbSpacing="64"
@@ -97,7 +100,7 @@ export default function Home() {
                 label: "Username",
                 type: "username",
               },
-              variant: "recommended", // wrong placed
+              variant: "recommended",
             }}
           />
           <Mumble
