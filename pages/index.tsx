@@ -12,7 +12,7 @@ export default function Home() {
 
 	return (
 		<>
-			<div tw="bg-slate-white">
+			<div tw="bg-slate-200">
 				<Navigation
 					logo={{
 						title: "Mumble Logo",
