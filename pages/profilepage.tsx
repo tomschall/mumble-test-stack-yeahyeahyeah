@@ -24,8 +24,8 @@ export default function Profilepage() {
         <Navi />
         <div tw="container py-16">
           <div tw="flex flex-col justify-between">
-            <ImageContainer src="https://picsum.photos/640/360" alt="Picture" />
-            <div tw="px-8 mb-16">
+            <ImageContainer src="https://placebeard.it/640x360" alt="Picture" />
+            <div tw="px-8 mb-16 z-50">
               <User
                 avatar={{
                   alt: "Alter Tag",
