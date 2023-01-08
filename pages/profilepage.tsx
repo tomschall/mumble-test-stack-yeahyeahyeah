@@ -82,7 +82,53 @@ export default function Profilepage() {
             <Checkbox selection="mumbles" />
           </div>
         </div>
-        <Container layout="box">
+        <Container layout="plain">
+          <div tw="mb-32">
+            <WriteComponent
+              variant="write"
+              mbSpacing="64"
+              form={{
+                editType: "textarea",
+                autoComplete: "off",
+                required: false,
+                errorMessage: "Da ist etwas schief gelaufen",
+                placeholder: "Na, was meinste dazu ...?",
+              }}
+              send={{
+                fCallBack: function noRefCheck() {},
+                icon: "send",
+                label: "Absenden",
+                size: "small",
+                type: "button",
+                variant: "violet",
+                width: "full",
+              }}
+              setText={function noRefCheck() {}}
+              startHeading="Hey, was läuft?"
+              upload={{
+                fCallBack: function noRefCheck() {},
+                icon: "upload",
+                label: "Bild hochladen",
+                size: "small",
+                type: "button",
+                variant: "slate",
+                width: "full",
+              }}
+              user={{
+                avatar: {
+                  alt: "Family Guy goes Mumble",
+                  src: "https://picsum.photos/40/40",
+                },
+                label: "Hey, was läuft?",
+                username: {
+                  href: "#",
+                  label: "Username",
+                  type: "username",
+                },
+                variant: "recommended",
+              }}
+            />
+          </div>
           <div tw="mb-32">
             <Mumble
               comment={{
@@ -92,7 +138,7 @@ export default function Profilepage() {
               img={{
                 alt: "This is a profile picture!",
                 fCallBack: function noRefCheck() {},
-                src: "",
+                src: "https://picsum.photos/640/360",
               }}
               like={{
                 fCallBack: function noRefCheck() {},
@@ -109,7 +155,7 @@ export default function Profilepage() {
                   alt: "avatar",
                   buttonCallBack: function noRefCheck() {},
                   imageCallBack: function noRefCheck() {},
-                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                  src: "https://picsum.photos/640/360",
                 },
                 joined: {
                   type: "joined",
@@ -146,16 +192,11 @@ export default function Profilepage() {
               fCallBack: function noRefCheck() {},
               quantity: 0,
             }}
-            img={{
-              alt: "This is a profile picture!",
-              fCallBack: function noRefCheck() {},
-              src: "https://shorturl.at/nEO01",
-            }}
             like={{
               fCallBack: function noRefCheck() {},
               quantity: 999,
             }}
-            mbSpacing="0"
+            mbSpacing="32"
             share={{
               fCallBack: function noRefCheck() {},
               label: "Share",
@@ -169,33 +210,33 @@ export default function Profilepage() {
                 src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
               },
               joined: {
+                type: "joined",
                 fCallBack: function noRefCheck() {},
                 href: "",
                 label: "Joined",
-                type: "joined",
               },
               label: "Display Name",
               location: {
+                type: "joined",
                 fCallBack: function noRefCheck() {},
                 href: "",
                 label: "Location",
-                type: "location",
               },
               timestamp: {
+                type: "joined",
                 fCallBack: function noRefCheck() {},
                 href: "",
                 label: "Timestamp",
-                type: "timestamp",
               },
               username: {
+                type: "joined",
                 fCallBack: function noRefCheck() {},
                 href: "",
                 label: "Username",
-                type: "username",
               },
               variant: "xlarge",
             }}
-            variant="detailpage"
+            variant="timeline"
           />
           <Mumble
             comment={{
@@ -205,7 +246,7 @@ export default function Profilepage() {
             img={{
               alt: "This is a profile picture!",
               fCallBack: function noRefCheck() {},
-              src: "https://shorturl.at/nEO01",
+              src: "https://picsum.photos/640/360",
             }}
             like={{
               fCallBack: function noRefCheck() {},
@@ -249,65 +290,9 @@ export default function Profilepage() {
                 href: "",
                 label: "Username",
               },
-              variant: "write",
+              variant: "xlarge",
             }}
-            variant="response"
-          />
-          <Mumble
-            comment={{
-              fCallBack: function noRefCheck() {},
-              quantity: 0,
-            }}
-            img={{
-              alt: "This is a profile picture!",
-              fCallBack: function noRefCheck() {},
-              src: "https://shorturl.at/nEO01",
-            }}
-            like={{
-              fCallBack: function noRefCheck() {},
-              quantity: 999,
-            }}
-            mbSpacing="32"
-            share={{
-              fCallBack: function noRefCheck() {},
-              label: "Share",
-            }}
-            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-            user={{
-              avatar: {
-                alt: "avatar",
-                buttonCallBack: function noRefCheck() {},
-                imageCallBack: function noRefCheck() {},
-                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-              },
-              joined: {
-                type: "joined",
-                fCallBack: function noRefCheck() {},
-                href: "",
-                label: "Joined",
-              },
-              label: "Display Name",
-              location: {
-                type: "joined",
-                fCallBack: function noRefCheck() {},
-                href: "",
-                label: "Location",
-              },
-              timestamp: {
-                type: "joined",
-                fCallBack: function noRefCheck() {},
-                href: "",
-                label: "Timestamp",
-              },
-              username: {
-                type: "joined",
-                fCallBack: function noRefCheck() {},
-                href: "",
-                label: "Username",
-              },
-              variant: "small",
-            }}
-            variant="response"
+            variant="timeline"
           />
         </Container>
       </div>
