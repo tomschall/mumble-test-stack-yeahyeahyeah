@@ -6,6 +6,7 @@ import {
   WriteComponent,
   Heading,
   Container,
+  User,
 } from "@smartive-education/design-system-component-library-yeahyeahyeah";
 
 export default function Detailview() {
@@ -13,8 +14,47 @@ export default function Detailview() {
     <>
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
         <Navi />
+
         <Container layout="box">
           <div tw="border-b-1 border-slate-200">
+            <User
+              avatar={{
+                alt: "Alter Tag",
+                buttonCallBack: function noRefCheck() {},
+                imageCallBack: function noRefCheck() {},
+                src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+              }}
+              btn={{
+                fCallBack: function noRefCheck() {},
+                label: "Follow",
+              }}
+              joined={{
+                type: "joined",
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Joined",
+              }}
+              label="Display Name"
+              location={{
+                type: "joined",
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Location",
+              }}
+              timestamp={{
+                type: "joined",
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Timestamp",
+              }}
+              username={{
+                type: "joined",
+                fCallBack: function noRefCheck() {},
+                href: "",
+                label: "Username",
+              }}
+              variant="recommended"
+            />
             <Mumble
               comment={{
                 fCallBack: function noRefCheck() {},

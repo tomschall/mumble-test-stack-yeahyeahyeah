@@ -1,10 +1,9 @@
-import Link from "next/link";
+import "twin.macro";
 import Navi from "./includes/navi";
 import {
   Checkbox,
   Container,
   Heading,
-  Navigation,
   Mumble,
   WriteComponent,
   ImageContainer,
@@ -24,8 +23,12 @@ export default function Profilepage() {
         <Navi />
         <div tw="container py-16">
           <div tw="flex flex-col justify-between">
-            <ImageContainer src="https://placebeard.it/640x360" alt="Picture" />
-            <div tw="px-8 mb-16 z-50">
+            <ImageContainer
+              src="https://placebeard.it/640x360"
+              alt="Picture"
+              type="banner"
+            />
+            <div tw="px-8 mb-16">
               <User
                 avatar={{
                   alt: "Alter Tag",
@@ -83,7 +86,383 @@ export default function Profilepage() {
           </div>
         </div>
         <Container layout="plain">
+          <Heading
+            tag="h3"
+            size="default"
+            label="Empfohlene User"
+            mbSpacing="16"
+          />
+
+          <div tw="grid grid-flow-row sm:(grid-flow-col grid-rows-3) gap-16 mb-32">
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+            <div>
+              <User
+                avatar={{
+                  alt: "Alter Tag",
+                  buttonCallBack: () => {},
+                  imageCallBack: function noRefCheck() {},
+                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                }}
+                btn={{
+                  fCallBack: function noRefCheck() {},
+                  label: "Follow",
+                }}
+                joined={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Joined",
+                }}
+                label="Display Name"
+                location={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Location",
+                }}
+                timestamp={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Timestamp",
+                }}
+                username={{
+                  type: "joined",
+                  fCallBack: function noRefCheck() {},
+                  href: "",
+                  label: "Username",
+                }}
+                variant="recommended"
+              />
+            </div>
+          </div>
           <div tw="mb-32">
+            <Heading
+              tag="h3"
+              size="default"
+              label="Empfohlene Mumbles"
+              mbSpacing="16"
+            />
+
             <WriteComponent
               variant="write"
               mbSpacing="64"
