@@ -85,7 +85,7 @@ export default function Detailview() {
               img={{
                 alt: "This is a profile picture!",
                 fCallBack: function noRefCheck() {},
-                src: "",
+                src: "https://picsum.photos/640/360",
               }}
               like={{
                 fCallBack: function noRefCheck() {},
@@ -102,7 +102,7 @@ export default function Detailview() {
                   alt: "avatar",
                   buttonCallBack: function noRefCheck() {},
                   imageCallBack: function noRefCheck() {},
-                  src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+                  src: "https://picsum.photos/640/360",
                 },
                 joined: {
                   type: "joined",
