@@ -10,6 +10,7 @@ import {
   ImageContainer,
   Avatar,
   User,
+  Paragraph,
 } from "@smartive-education/design-system-component-library-yeahyeahyeah";
 
 export default function Profilepage() {
@@ -21,10 +22,10 @@ export default function Profilepage() {
     <>
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
         <Navi />
-        <div tw="container py-16 h-[500px]">
-          <div tw="relative">
+        <div tw="container py-16">
+          <div tw="flex flex-col justify-between">
             <ImageContainer src="https://picsum.photos/640/360" alt="Picture" />
-            <div tw="relative -top-[100px] flex flex-row justify-between items-end z-10">
+            <div tw="px-8 mb-16">
               <User
                 avatar={{
                   alt: "Alter Tag",
@@ -63,16 +64,23 @@ export default function Profilepage() {
                 }}
                 variant="xlarge"
               />
-              <div tw="relative left-32">
-                <Avatar
-                  src="https://picsum.photos/640/360"
-                  alt="Picture"
-                  variant="edit"
-                />
-              </div>
             </div>
+            <div tw="flex justify-end items-end z-10 h-0 relative -top-16 overflow-visible">
+              <Avatar
+                src="https://picsum.photos/640/360"
+                alt="Picture"
+                variant="edit"
+              />
+            </div>
+            <div tw="p-8 mb-32">
+              <Paragraph
+                text="De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+                color="light"
+              />
+            </div>
+
+            <Checkbox selection="mumbles" />
           </div>
-          <Checkbox selection="mumbles" />
         </div>
         <Container layout="box">
           <div tw="mb-32">
