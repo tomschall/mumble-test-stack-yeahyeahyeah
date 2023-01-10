@@ -118,11 +118,14 @@ The `GlobalStyles` import adds these base styles along with some @keyframes for 
 
 You can import `GlobalStyles` within a new file placed in `styles/GlobalStyles.tsx`:
 
+The `GlobalStyles as MumbleStyles` import adds Mumble Global CSS settings and all font faces for `Poppins` - it includes all CSS vars and body styles that are needed for Mumble
+
 ```js
 // styles/GlobalStyles.tsx
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import tw, { theme, GlobalStyles as BaseStyles } from "twin.macro"
+import { GlobalStyles as BaseStyles } from "twin.macro"
+import { MumbleStyles } from "@smartive-education/design-system-component-library-yeahyeahyeah"
 
 const CustomStyles = createGlobalStyle({
 	body: {},
@@ -131,6 +134,7 @@ const CustomStyles = createGlobalStyle({
 const GlobalStyles = () => (
 	<>
 		<BaseStyles />
+		<MumbleStyles />
 		<CustomStyles />
 	</>
 )
@@ -138,28 +142,23 @@ const GlobalStyles = () => (
 export default GlobalStyles
 ```
 
-The `@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css` import adds Mumble Global CSS settings - it includes all CSS vars and body styles that are needed for Mumble
-
-All you have to do ist to import the GlobalStyles file and Mumble Global CSS file in `pages/_app.tsx`:
-
-Also import
+All you have to do now is to import the GlobalStyles in `pages/_app.tsx` and add the component to get rendered:
 
 ```js
 // pages/_app.tsx
-import "@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css"
-import type { AppProps } from "next/app"
+import React from "react"
+import { AppProps } from "next/app"
 import GlobalStyles from "../styles/GlobalStyles"
+import "../styles/globals.css"
 
-function MyApp({ Component, pageProps }: AppProps) {
-	return (
-		<>
-			<GlobalStyles />
-			<Component {...pageProps} />
-		</>
-	)
-}
+const App = ({ Component, pageProps }: AppProps) => (
+	<div>
+		<GlobalStyles />
+		<Component {...pageProps} />
+	</div>
+)
 
-export default MyApp
+export default App
 ```
 
 ### Add the twin config
@@ -247,7 +246,7 @@ module.exports = function withTwin(nextConfig) {
 			config.module.rules = config.module.rules || []
 			config.module.rules.push({
 				// mumble npm package components are pure js files, therefor js has also to be included
-				test: /\.(tsx|ts|js)$/,
+				test: /\.(tsx|ts|jsx)$/,
 				include: includedDirs,
 				use: [
 					options.defaultLoaders.babel,
@@ -358,8 +357,9 @@ To see a nice mumble demo timeline add following code to `pages/index.tsx`.
 import {
 	Navigation,
 	Mumble,
-	WriteComponent,
+	TextBox,
 	Heading,
+	Container,
 } from "@smartive-education/design-system-component-library-yeahyeahyeah"
 
 export default function Home() {
@@ -369,56 +369,58 @@ export default function Home() {
 
 	return (
 		<>
-			<div tw="bg-slate-200">
-				<Navigation
-					logo={{
-						title: "Mumble Logo",
-						href: "#",
-						variant: "white",
-						alignment: "horizontal",
-						fCallBack: () => console.log("logo"),
-						isNavigation: true,
-					}}
-					avatar={{
-						label: "Label",
-						variant: "profile",
-						fCallBack: handleAvatar,
-						src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
-					}}
-					settings={{
-						label: "Settings",
-						variant: "default",
-						fCallBack: () => console.log("settings"),
-						icon: "settings",
-					}}
-					logout={{
-						label: "Logout",
-						variant: "default",
-						fCallBack: () => console.log("logout"),
-						icon: "logout",
-					}}
-				/>
-				<div tw="container">
-					<div tw="mt-32">
-						<Heading
-							label="Willkommen auf Mumble"
-							color="violet"
-							tag="h2"
-							size="default"
-							spacing="32"
-						/>
-						<Heading
-							label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
-							color="light"
-							tag="h4"
-							size="default"
-							spacing="32"
-						/>
-					</div>
-					<div tw="mb-16">
-						<WriteComponent
+			<div tw="flex flex-col justify-center items-start bg-slate-200 w-full h-full">
+				<div tw="w-full mb-32">
+					<Navigation
+						logo={{
+							title: "Mumble Logo",
+							href: "#",
+							variant: "white",
+							alignment: "horizontal",
+							fCallBack: () => console.log("logo"),
+							isNavigation: true,
+						}}
+						avatar={{
+							label: "Label",
+							variant: "profile",
+							fCallBack: handleAvatar,
+							src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+						}}
+						settings={{
+							label: "Detailview",
+							variant: "default",
+							fCallBack: () => console.log("settings"),
+							icon: "settings",
+						}}
+						logout={{
+							label: "Logout",
+							variant: "default",
+							fCallBack: () => console.log("logout"),
+							icon: "logout",
+						}}
+					/>
+				</div>
+				<Container layout="plain">
+					<Heading
+						label="Willkommen auf Mumble"
+						color="violet"
+						tag="h2"
+						size="default"
+						mbSpacing="32"
+					/>
+					<Heading
+						label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
+						color="light"
+						tag="h4"
+						size="default"
+						mbSpacing="32"
+					/>
+				</Container>
+				<Container layout="plain">
+					<div tw="mb-32">
+						<TextBox
 							variant="write"
-							spacing="64"
+							mbSpacing="64"
 							form={{
 								editType: "textarea",
 								autoComplete: "off",
@@ -427,7 +429,9 @@ export default function Home() {
 								placeholder: "Na, was meinste dazu ...?",
 							}}
 							send={{
-								fCallBack: function noRefCheck() {},
+								fCallBack: () => {
+									console.log("clicked")
+								},
 								icon: "send",
 								label: "Absenden",
 								size: "small",
@@ -435,10 +439,14 @@ export default function Home() {
 								variant: "violet",
 								width: "full",
 							}}
-							setText={function noRefCheck() {}}
+							setText={() => {
+								return null
+							}}
 							startHeading="Hey, was läuft?"
 							upload={{
-								fCallBack: function noRefCheck() {},
+								fCallBack: () => {
+									console.log("clicked")
+								},
 								icon: "upload",
 								label: "Bild hochladen",
 								size: "small",
@@ -457,178 +465,163 @@ export default function Home() {
 									label: "Username",
 									type: "username",
 								},
-								variant: "recommended", // wrong placed
+								variant: "recommended",
 							}}
 						/>
 					</div>
-					<div tw="mb-16">
-						<Mumble
-							variant="timeline"
-							comment={{
-								fCallBack: function noRefCheck() {},
-								quantity: 0,
-							}}
-							like={{
-								fCallBack: function noRefCheck() {},
-								quantity: 999,
-							}}
-							share={{
-								fCallBack: function noRefCheck() {},
-								label: "Share",
-							}}
-							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-							img={{
-								alt: "This is a profile picture!",
-								fCallBack: function noRefCheck() {},
-								src: "https://learnenglishteens.britishcouncil.org/sites/teens/files/field/image/istock-898916122.jpg",
-							}}
-							user={{
-								avatar: {
-									alt: "avatar",
-									buttonCallBack: function noRefCheck() {},
-									imageCallBack: function noRefCheck() {},
-									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+					<Mumble
+						comment={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							quantity: 0,
+						}}
+						img={{
+							alt: "This is a profile picture!",
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							src: "https://shorturl.at/nEO01",
+						}}
+						like={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							quantity: 999,
+						}}
+						mbSpacing="32"
+						share={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							label: "Share",
+						}}
+						text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+						user={{
+							avatar: {
+								alt: "avatar",
+								buttonCallBack: () => {
+									console.log("clicked")
 								},
-								joined: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Joined",
-									type: "joined",
+								imageCallBack: () => {
+									console.log("clicked")
 								},
-								label: "Display Name",
-								location: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Location",
-									type: "location",
+								src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+							},
+							joined: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								timestamp: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Timestamp",
-									type: "timestamp",
+								href: "",
+								label: "Joined",
+							},
+							label: "Display Name",
+							location: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								username: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Username",
-									type: "username",
+								href: "",
+								label: "Location",
+							},
+							timestamp: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								variant: "xlarge",
-							}}
-						/>
-					</div>
-					<div tw="mb-16">
-						<Mumble
-							variant="timeline"
-							comment={{
-								fCallBack: function noRefCheck() {},
-								quantity: 0,
-							}}
-							like={{
-								fCallBack: function noRefCheck() {},
-								quantity: 999,
-							}}
-							share={{
-								fCallBack: function noRefCheck() {},
-								label: "Share",
-							}}
-							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-							user={{
-								avatar: {
-									alt: "avatar",
-									buttonCallBack: function noRefCheck() {},
-									imageCallBack: function noRefCheck() {},
-									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+								href: "",
+								label: "Timestamp",
+							},
+							username: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								joined: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Joined",
-									type: "joined",
+								href: "",
+								label: "Username",
+							},
+							variant: "xlarge",
+						}}
+						variant="timeline"
+					/>
+					<Mumble
+						comment={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							quantity: 0,
+						}}
+						img={{
+							alt: "This is a profile picture!",
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							src: "https://shorturl.at/nEO01",
+						}}
+						like={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							quantity: 999,
+						}}
+						mbSpacing="32"
+						share={{
+							fCallBack: () => {
+								console.log("clicked")
+							},
+							label: "Share",
+						}}
+						text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+						user={{
+							avatar: {
+								alt: "avatar",
+								buttonCallBack: () => {
+									console.log("clicked")
 								},
-								label: "Display Name",
-								location: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Location",
-									type: "location",
+								imageCallBack: () => {
+									console.log("clicked")
 								},
-								timestamp: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Timestamp",
-									type: "timestamp",
+								src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+							},
+							joined: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								username: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Username",
-									type: "username",
+								href: "",
+								label: "Joined",
+							},
+							label: "Display Name",
+							location: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								variant: "xlarge",
-							}}
-						/>
-					</div>
-					<div tw="mb-16">
-						<Mumble
-							variant="timeline"
-							comment={{
-								fCallBack: function noRefCheck() {},
-								quantity: 0,
-							}}
-							img={{
-								alt: "This is a profile picture!",
-								fCallBack: function noRefCheck() {},
-								src: "https://shorturl.at/nEO01",
-							}}
-							like={{
-								fCallBack: function noRefCheck() {},
-								quantity: 999,
-							}}
-							share={{
-								fCallBack: function noRefCheck() {},
-								label: "Share",
-							}}
-							text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-							user={{
-								avatar: {
-									alt: "avatar",
-									buttonCallBack: function noRefCheck() {},
-									imageCallBack: function noRefCheck() {},
-									src: "https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif",
+								href: "",
+								label: "Location",
+							},
+							timestamp: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								joined: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Joined",
-									type: "joined",
+								href: "",
+								label: "Timestamp",
+							},
+							username: {
+								type: "joined",
+								fCallBack: () => {
+									console.log("clicked")
 								},
-								label: "Display Name",
-								location: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Location",
-									type: "location",
-								},
-								timestamp: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Timestamp",
-									type: "timestamp",
-								},
-								username: {
-									fCallBack: function noRefCheck() {},
-									href: "",
-									label: "Username",
-									type: "username",
-								},
-								variant: "xlarge",
-							}}
-						/>
-					</div>
-					<div tw="mt-64">&nbsp;</div>
-				</div>
+								href: "",
+								label: "Username",
+							},
+							variant: "xlarge",
+						}}
+						variant="timeline"
+					/>
+				</Container>
 			</div>
 		</>
 	)

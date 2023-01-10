@@ -3,7 +3,7 @@ import Navi from "./includes/navi"
 import {
 	Navigation,
 	Mumble,
-	WriteComponent,
+	TextBox,
 	Heading,
 	Container,
 	User,
@@ -74,7 +74,7 @@ export default function Detailview() {
 						/>
 					</div>
 					<div tw="border-b-1 border-slate-200">
-						<WriteComponent
+						<TextBox
 							variant="inline"
 							form={{
 								errorMessage: "Da ist etwas schief gelaufen",
