@@ -25,10 +25,6 @@ export default function Timeline() {
     addText();
   };
 
-  const handleClick = () => {
-    console.log('avatar clicked');
-  };
-
   const addText = () => {
     if (text === '') {
       setErrorMessage('Bitte füllen Sie das Feld aus.');
@@ -42,6 +38,10 @@ export default function Timeline() {
     }
     setPosts([...posts, text]);
     setText('');
+  };
+
+  const handleUpload = () => {
+    console.log('upload');
   };
 
   return (
@@ -82,7 +82,7 @@ export default function Timeline() {
                 setText: setText,
               }}
               sendCallback={handleSend}
-              uploadCallback={() => console.log('upload')}
+              uploadCallback={handleUpload}
             />
           </div>
           {posts
