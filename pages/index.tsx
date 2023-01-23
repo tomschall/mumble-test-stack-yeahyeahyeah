@@ -91,57 +91,56 @@ export default function Timeline() {
                 <Mumble
                   key={i}
                   comment={{
-                    fCallBack: function noRefCheck() {},
+                    fCallBack: () => console.log('comment clicked'),
                     quantity: 0,
                   }}
                   img={{
                     alt: 'This is a profile picture!',
-                    fCallBack: function noRefCheck() {},
+                    fCallBack: () => console.log('img clicked'),
                     src: 'https://picsum.photos/640/360',
                   }}
                   like={{
-                    fCallBack: function noRefCheck() {},
+                    fCallBack: () => console.log('like clicked'),
                     quantity: 999,
                   }}
                   mbSpacing="32"
                   share={{
-                    fCallBack: function noRefCheck() {},
+                    fCallBack: () => console.log('share clicked'),
                     label: 'Share',
                   }}
                   text={post}
                   user={{
                     avatar: {
                       alt: 'avatar',
-                      buttonCallBack: function noRefCheck() {},
-                      imageCallBack: function noRefCheck() {},
-                      src: 'https://picsum.photos/640/360',
+                      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                      imageCallBack: () => console.log('avatar clicked'),
                     },
                     joined: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {},
+                      fCallBack: () => console.log('joined clicked'),
                       href: '',
                       label: 'Joined',
+                      type: 'joined',
                     },
                     label: 'Display Name',
                     location: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {},
+                      fCallBack: () => console.log('location clicked'),
                       href: '',
                       label: 'Location',
+                      type: 'location',
                     },
                     timestamp: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {},
+                      fCallBack: () => console.log('timestamp clicked'),
                       href: '',
                       label: 'Timestamp',
+                      type: 'timestamp',
                     },
                     username: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {},
+                      fCallBack: () => console.log('username clicked'),
                       href: '',
                       label: 'Username',
+                      type: 'username',
                     },
-                    variant: 'xlarge',
+                    variant: 'large',
                   }}
                   variant="timeline"
                 />
