@@ -1,13 +1,5 @@
-import Link from 'next/link';
 import Navi from './includes/navi';
-import {
-  Navigation,
-  Mumble,
-  TextBox,
-  Heading,
-  Container,
-  User,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Mumble, TextBox, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useEffect, useState } from 'react';
 
 export default function Detailview() {
@@ -30,10 +22,6 @@ export default function Detailview() {
   const handleSend = () => {
     if (ref?.current) ref.current.value = '';
     addText();
-  };
-
-  const handleClick = () => {
-    console.log('avatar clicked');
   };
 
   const addText = () => {
@@ -119,7 +107,6 @@ export default function Detailview() {
               variant="write"
               user={{
                 label: 'Hey, was läuft?',
-                variant: 'write',
                 username: {
                   type: 'joined',
                   label: 'Username',

@@ -17,16 +17,17 @@ export default function Navi() {
           logo={{
             title: 'Mumble Logo',
             href: '#',
-            color: 'white',
-            alignment: 'horizontal',
             fCallBack: () => console.log('logo'),
-            isNavigation: true,
           }}
           avatar={{
             label: 'Label',
             variant: 'profile',
             fCallBack: handleAvatar,
-            avatar: { src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif', variant: 'small', alt: 'Avatar' },
+            avatar: {
+              variant: 'small',
+              src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
+              alt: 'Alternative text',
+            },
           }}
           settings={{
             label: 'Detailview',

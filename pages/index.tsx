@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Navi from './includes/navi';
 import { Mumble, TextBox, Heading, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useEffect, useState } from 'react';
@@ -64,7 +63,6 @@ export default function Timeline() {
               variant="write"
               user={{
                 label: 'Hey, was läuft?',
-                variant: 'write',
                 username: {
                   type: 'joined',
                   label: 'Username',
