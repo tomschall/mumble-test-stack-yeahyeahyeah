@@ -64,13 +64,14 @@ export default function Timeline() {
               user={{
                 label: 'Hey, was läuft?',
                 username: {
-                  type: 'joined',
                   label: 'Username',
                   href: '#',
+                  type: 'username',
                 },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                  alt: 'Family Guy goes Mumble',
+                  alt: 'Alter Tag',
+                  imageCallBack: () => console.log('avatar clicked'),
                 },
               }}
               form={{
@@ -80,7 +81,7 @@ export default function Timeline() {
                 setText: setText,
               }}
               sendCallback={handleSend}
-              uploadCallback={handleUpload}
+              uploadCallback={() => console.log('uploadCallback')}
             />
           </div>
           {posts
