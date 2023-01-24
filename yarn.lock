@@ -1390,9 +1390,9 @@
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
 "@smartive-education/design-system-component-library-yeahyeahyeah@latest":
-  version "1.28.12"
-  resolved "https://npm.pkg.github.com/download/@smartive-education/design-system-component-library-yeahyeahyeah/1.28.12/9ede72d3284d28a327731e2ca8fe39b8d42e200a#9ede72d3284d28a327731e2ca8fe39b8d42e200a"
-  integrity sha512-JJgAu5PrCqSYQb9k5XlQQAnR2HBzLMDYfLnk7zQY2tAN6ewtsWjkvykH5Pw5Qbu5dfXAQFctTlnwECh4EsAWbw==
+  version "1.29.0"
+  resolved "https://npm.pkg.github.com/download/@smartive-education/design-system-component-library-yeahyeahyeah/1.29.0/ad634f50e39852dbaa95d3113fafb398cef8efa5#ad634f50e39852dbaa95d3113fafb398cef8efa5"
+  integrity sha512-fh7KftHZIGk8znhR3yE13FHot7kjl/vPQ3kY5l8iW0vfNyR1DHpMcfM7xAieVcbaoQK2atEU4DlIe1mn6WG5WQ==
   dependencies:
     "@storybook/addon-docs" "^6.5.15"
     "@tailwindcss/forms" "^0.5.3"

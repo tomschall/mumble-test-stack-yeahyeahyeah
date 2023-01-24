@@ -36,10 +36,6 @@ export default function Profilepage() {
     addText();
   };
 
-  const handleClick = () => {
-    console.log('avatar clicked');
-  };
-
   const addText = () => {
     if (text === '') {
       setErrorMessage('Bitte füllen Sie das Feld aus.');
@@ -58,36 +54,36 @@ export default function Profilepage() {
   const props: IUserProps = {
     avatar: {
       alt: 'Alter Tag',
-      buttonCallBack: handleClick,
-      imageCallBack: handleClick,
+      buttonCallBack: () => console.log('button clicked'),
+      imageCallBack: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
     btn: {
-      fCallBack: handleClick,
+      fCallBack: () => console.log('button clicked'),
       label: 'Follow',
     },
     joined: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('joined clicked'),
       href: '',
       label: 'Joined',
     },
     label: 'Display Name',
     location: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('location clicked'),
       href: '',
       label: 'Location',
     },
     timestamp: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('timestamp clicked'),
       href: '',
       label: 'Timestamp',
     },
     username: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('username clicked'),
       href: '',
       label: 'Username',
     },
@@ -113,36 +109,36 @@ export default function Profilepage() {
               <User
                 avatar={{
                   alt: 'Alter Tag',
-                  buttonCallBack: function noRefCheck() {},
-                  imageCallBack: function noRefCheck() {},
+                  buttonCallBack: () => console.log('button clicked'),
+                  imageCallBack: () => console.log('image clicked'),
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                 }}
                 btn={{
-                  fCallBack: function noRefCheck() {},
+                  fCallBack: () => console.log('button clicked'),
                   label: 'Follow',
                 }}
                 joined={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {},
+                  fCallBack: () => console.log('joined clicked'),
                   href: '',
                   label: 'Joined',
                 }}
                 label="Display Name"
                 location={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {},
+                  fCallBack: () => console.log('location clicked'),
                   href: '',
                   label: 'Location',
                 }}
                 timestamp={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {},
+                  fCallBack: () => console.log('timestamp clicked'),
                   href: '',
                   label: 'Timestamp',
                 }}
                 username={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {},
+                  fCallBack: () => console.log('username clicked'),
                   href: '',
                   label: 'Username',
                 }}
@@ -176,7 +172,7 @@ export default function Profilepage() {
         </div>
         <Container layout="plain">
           <Heading tag="h3" size="default" label="Empfohlene User" mbSpacing="16" color="dark" />
-          <div tw="flex flex-row flex-wrap gap-12 mb-32">{users}</div>
+          <div tw="flex flex-row flex-wrap gap-12 mb-32">{users && users}</div>
           <div tw="mb-32">
             <Heading tag="h3" size="default" label="Empfohlene Mumbles" mbSpacing="16" color="dark" />
             <TextBox
