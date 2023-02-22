@@ -55,7 +55,7 @@ export const Navi: React.FC = () => {
             <NaviButton
               label="Logout"
               variant="default"
-              icon="logout"
+              icon="heart-filled"
               href="/"
               onClick={() => signOut()}
               legacyBehavior={true}

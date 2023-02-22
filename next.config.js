@@ -1,6 +1,3 @@
-// next.config.js
-const withTwin = require('./withTwin.js');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -20,6 +17,7 @@ const nextConfig = {
 module.exports = nextConfig;
 
 // Twin config: must included AFTER nextConfig
+const withTwin = require('./withTwin.js');
 module.exports = withTwin({
-  reactStrictMode: true, // < Recommended by Next
+  reactStrictMode: true,
 });

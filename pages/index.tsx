@@ -1,41 +1,84 @@
-import React, { useState } from 'react';
-import { FileRejection } from 'react-dropzone';
-
-import { Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import React from 'react';
+import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { Navi } from '@/components/navigation';
 import { WelcomeText } from '@/components/welcome-text';
-import { WriteMumble } from '@/components/textbox';
+import { TextBoxComponent } from '@/components/textbox';
+import { useState } from 'react';
+import { fetchMumbles, Mumble } from '../services/qwacker';
+import { MumblePost } from '@/components/mumble';
 
-export default function Timeline() {
-  const [showModal, setShowModal] = useState(false);
-  const [fileUploadError, setFileUploadError] = useState('');
+type PageProps = {
+  count: number;
+  mumbles: Mumble[];
+  error?: string;
+};
 
-  const setTimerForError = () =>
-    setTimeout(() => {
-      setFileUploadError('');
-    }, 2000);
+export default function Page({
+  count: initialCount,
+  mumbles: initialMumbles,
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [mumbles, setMumbles] = useState(initialMumbles);
+  const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState(initialCount);
+  const [hasMore, setHasMore] = useState(initialMumbles.length < count);
 
-  const onDropCallBack = (acceptedFiles: File[], fileRejections: FileRejection[]) => {
-    console.log('acceptedFiles, fileRejections', acceptedFiles, fileRejections);
-    fileRejections?.length && setFileUploadError(fileRejections[0].errors[0].message);
-    setTimerForError();
+  if (error) {
+    return <div>An error occurred: {error}</div>;
+  }
+
+  const loadMore = async () => {
+    const { count, mumbles: newMumbles } = await fetchMumbles({
+      limit: 2,
+      offset: mumbles.length,
+    });
+
+    setLoading(false);
+    setHasMore(mumbles.length + newMumbles.length < count);
+    setMumbles([...mumbles, ...newMumbles]);
   };
 
   return (
-    <>
-      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
-        <Navi />
-        <Container layout="plain">
+    <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
+      <Navi />
+      <Container layout="plain">
+        <div tw="mb-16">
           <WelcomeText />
-          <WriteMumble />
-          <UploadForm
-            onDropCallBack={onDropCallBack}
-            showModal={showModal}
-            setShowModal={setShowModal}
-            fileUploadError={fileUploadError}
+          <TextBoxComponent />
+        </div>
+
+        {mumbles.map((mumble) => (
+          <MumblePost
+            key={mumble.id}
+            createdTimestamp={mumble.createdTimestamp}
+            mediaUrl={mumble.mediaUrl}
+            text={mumble.text}
           />
-        </Container>
-      </div>
-    </>
+        ))}
+
+        {hasMore ? (
+          <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
+        ) : (
+          ''
+        )}
+      </Container>
+    </div>
   );
 }
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({ req }: GetServerSidePropsContext) => {
+  try {
+    const { count, mumbles } = await fetchMumbles({ limit: 1 });
+
+    return { props: { count, mumbles } };
+  } catch (error) {
+    let message;
+    if (error instanceof Error) {
+      message = error.message;
+    } else {
+      message = String(error);
+    }
+
+    return { props: { error: message, mumbles: [], count: 0 } };
+  }
+};
