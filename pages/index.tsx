@@ -40,7 +40,7 @@ export default function Page({
   };
 
   return (
-    <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
+    <>
       <Navi />
       <Container layout="plain">
         <div tw="mb-16">
@@ -50,6 +50,7 @@ export default function Page({
 
         {mumbles.map((mumble) => (
           <MumblePost
+            id={mumble.id}
             key={mumble.id}
             createdTimestamp={mumble.createdTimestamp}
             mediaUrl={mumble.mediaUrl}
@@ -63,12 +64,12 @@ export default function Page({
           ''
         )}
       </Container>
-    </div>
+    </>
   );
 }
 export const getServerSideProps: GetServerSideProps<PageProps> = async ({ req }: GetServerSidePropsContext) => {
   try {
-    const { count, mumbles } = await fetchMumbles({ limit: 1 });
+    const { count, mumbles } = await fetchMumbles({ limit: 2 });
 
     return { props: { count, mumbles } };
   } catch (error) {

@@ -3,12 +3,15 @@ import React from 'react';
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app';
 import GlobalStyles from '../styles/GlobalStyles';
+import { DefaultLayout } from '@/components/layouts/DefaultLayout';
 import '../styles/globals.css';
 
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
   <SessionProvider session={session}>
     <GlobalStyles />
-    <Component {...pageProps} />
+    <DefaultLayout>
+      <Component {...pageProps} />
+    </DefaultLayout>
   </SessionProvider>
 );
 

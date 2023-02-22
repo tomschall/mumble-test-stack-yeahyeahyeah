@@ -1,70 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import {
   Avatar,
+  Modal,
   MumbleLogo,
   NaviButton,
   Navigation,
   NavigationColumn,
   NavigationRow,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { FormSettings } from './form/settings';
 
 export const Navi: React.FC = () => {
   const { data: session } = useSession();
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen((open) => !open);
+  };
+
+  const handleClose = () => {
+    setOpen((open) => !open);
+  };
+
+  console.log({ open });
 
   return (
-    <Navigation mbSpacing="32">
-      <NavigationColumn>
-        <Link href="/" title="Startpage" target="_self">
-          <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
-        </Link>
-        <NavigationRow>
-          <NaviButton
-            label="Profile"
-            variant="profile"
-            href="/profilepage"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          >
-            <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
-          </NaviButton>
-          <NaviButton
-            label="Settings"
-            variant="default"
-            icon="settings"
-            href="/"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          />
-          {!session && (
+    <>
+      <Navigation mbSpacing="32">
+        <NavigationColumn>
+          <Link href="/" title="Startpage" target="_self">
+            <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
+          </Link>
+          <NavigationRow>
             <NaviButton
-              label="Login"
+              label="Profile"
+              variant="profile"
+              href="/profilepage"
+              legacyBehavior={true}
+              passHref={true}
+              linkComponent={Link}
+            >
+              <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
+            </NaviButton>
+            <NaviButton
+              label="Settings"
               variant="default"
-              icon="logout"
+              icon="settings"
+              onClick={handleClick}
               href=""
-              onClick={() => signIn('zitadel')}
               legacyBehavior={true}
-              passHref={true}
+              passHref={false}
               linkComponent={Link}
             />
-          )}
-          {!!session && (
-            <NaviButton
-              label="Logout"
-              variant="default"
-              icon="heart-filled"
-              href="/"
-              onClick={() => signOut()}
-              legacyBehavior={true}
-              passHref={true}
-              linkComponent={Link}
-            />
-          )}
-        </NavigationRow>
-      </NavigationColumn>
-    </Navigation>
+            {!session && (
+              <NaviButton
+                label="Login"
+                variant="default"
+                icon="logout"
+                href=""
+                onClick={() => signIn('zitadel')}
+                legacyBehavior={true}
+                passHref={true}
+                linkComponent={Link}
+              />
+            )}
+            {!!session && (
+              <NaviButton
+                label="Logout"
+                variant="default"
+                icon="heart-filled"
+                href="/"
+                onClick={() => signOut()}
+                legacyBehavior={true}
+                passHref={true}
+                linkComponent={Link}
+              />
+            )}
+          </NavigationRow>
+        </NavigationColumn>
+      </Navigation>
+      <Modal label="Settings" isOpen={open} onClick={handleClick} onClose={handleClose}>
+        <FormSettings />
+      </Modal>
+    </>
   );
 };
