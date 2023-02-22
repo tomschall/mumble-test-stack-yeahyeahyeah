@@ -31,7 +31,6 @@ export const FormSettings: React.FC = () => {
   return (
     <>
       <InputForm
-        key={'name'}
         label="Name und Vorname"
         editType={'input'}
         placeholder={'Bitte geben sie einen Text ein '}
@@ -41,7 +40,7 @@ export const FormSettings: React.FC = () => {
         inputValue={inputValue}
         errorMessage={errorMessage}
         onPressEnter={handlePressEnter}
-        data-testid={'label'}
+        data-testid={'name'}
       />
       <InputForm
         key={'email'}
@@ -54,7 +53,7 @@ export const FormSettings: React.FC = () => {
         inputValue={inputValue}
         errorMessage={errorMessage}
         onPressEnter={handlePressEnter}
-        data-testid={'label'}
+        data-testid={'email'}
       />
     </>
   );
