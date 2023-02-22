@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Avatar,
   CommentButton,
@@ -26,8 +27,16 @@ export const MumblePost: React.FC<MumbleProps> = ({ key, createdTimestamp, media
         <div tw="flex flex-col">
           <User label="Username" variant="large" />
           <div tw="flex flex-row gap-16">
-            <IconLink type="username" label="username" href="#" />
-            <IconLink type="timestamp" label={createdTimestamp.toString()} color="slate" href="#" />
+            <IconLink label="User" type="username" color="violet" href="/" legacyBehavior passHref linkComponent={Link} />
+            <IconLink
+              label={createdTimestamp.toString()}
+              type="username"
+              color="slate"
+              href="/"
+              legacyBehavior
+              passHref
+              linkComponent={Link}
+            />
           </div>
         </div>
       </div>
