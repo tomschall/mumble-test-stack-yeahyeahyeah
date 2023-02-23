@@ -1,5 +1,5 @@
 import tw from 'twin.macro';
-import { Navi } from '../navigation';
+import { Navi } from '../navigation/navigation';
 
 export type IDefaultLayout = React.DOMAttributes<HTMLDivElement>;
 

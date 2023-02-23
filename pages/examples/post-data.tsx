@@ -1,12 +1,8 @@
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from "next";
-import Image from "next/image";
-import { useState } from "react";
-import { NewMumble } from "../components/new-mumble";
-import { fetchMumbles, Mumble } from "../services/qwacker";
+import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import Image from 'next/image';
+import { useState } from 'react';
+import { NewMumble } from '../components/mumble/new-mumble';
+import { fetchMumbles, Mumble } from '../services/qwacker';
 
 type PageProps = {
   count: number;
@@ -57,34 +53,23 @@ export default function Page({
             </p>
             {mumble.mediaUrl && (
               <figure className="relative block max-w-full h-64 my-2">
-                <Image
-                  src={mumble.mediaUrl}
-                  alt={mumble.text}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
+                <Image src={mumble.mediaUrl} alt={mumble.text} fill style={{ objectFit: 'cover' }} />
               </figure>
             )}
           </li>
         ))}
       </ul>
       {hasMore ? (
-        <button
-          onClick={() => loadMore()}
-          disabled={loading}
-          className="bg-indigo-400 px-2 py-1 rounded-lg mt-4"
-        >
-          {loading ? "..." : "Load more"}
+        <button onClick={() => loadMore()} disabled={loading} className="bg-indigo-400 px-2 py-1 rounded-lg mt-4">
+          {loading ? '...' : 'Load more'}
         </button>
       ) : (
-        ""
+        ''
       )}
     </div>
   );
 }
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({
-  req,
-}: GetServerSidePropsContext) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({ req }: GetServerSidePropsContext) => {
   try {
     const { count, mumbles } = await fetchMumbles({ limit: 1 });
 

@@ -1,17 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import tw from 'twin.macro';
-import Link from 'next/link';
+import { MumbleSingleView } from '@/components/mumble/mumble-single';
 
-import {
-  Avatar,
-  Container,
-  CommentButton,
-  LikeButton,
-  User,
-  IconLink,
-  Paragraph,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { TextBoxComponent } from '@/components/textbox';
+import { Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { TextBoxComponent } from '@/components/form/textbox';
 
 type Props = {
   mumble: {
@@ -22,32 +14,12 @@ type Props = {
 export default function MumblePage({ mumble }: Props): InferGetServerSidePropsType<typeof getServerSideProps> {
   return (
     <Container layout="plain">
-      <ArticleMumble id={mumble.id}>
-        <ArticleHeader>
-          <Avatar variant="medium" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Username" />
-          <ArticleHeaderContent>
-            <User label="Username" variant="large" />
-            <ArticleDatas>
-              <IconLink label="User" type="username" color="violet" />
-              <IconLink
-                label={'timestamp'}
-                type="timestamp"
-                color="slate"
-                href="/"
-                legacyBehavior
-                passHref
-                linkComponent={Link}
-              />
-            </ArticleDatas>
-          </ArticleHeaderContent>
-        </ArticleHeader>
-
-        <Paragraph text={mumble.id} mbSpacing="16" />
-        <ArticleInteraction>
-          <CommentButton quantity={0} />
-          <LikeButton favourite={false} quantity={0} onClick={() => console.log('Like clicked')} />
-        </ArticleInteraction>
-      </ArticleMumble>
+      <MumbleSingleView
+        id={mumble.id}
+        createdTimestamp={6546464654}
+        mediaUrl={'https://picsum.photos/640/360'}
+        text={mumble.id}
+      />
       <TextBoxComponent />
     </Container>
   );

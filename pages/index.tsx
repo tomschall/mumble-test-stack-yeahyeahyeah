@@ -1,11 +1,11 @@
 import React from 'react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { WelcomeText } from '@/components/welcome-text';
-import { TextBoxComponent } from '@/components/textbox';
+import { WelcomeText } from '@/components/content/welcome-text';
+import { TextBoxComponent } from '@/components/form/textbox';
 import { useState } from 'react';
 import { fetchMumbles, Mumble } from '../services/qwacker';
-import { MumblePost } from '@/components/mumble';
+import { MumblePost } from '@/components/mumble/mumble';
 
 type PageProps = {
   count: number;

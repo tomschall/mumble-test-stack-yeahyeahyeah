@@ -26,6 +26,10 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
     router.push(`/mumble/${id}`);
   };
 
+  const handleShowUser = () => {
+    router.push(`/profilepage`);
+  };
+
   return (
     <ArticleMumble id={id}>
       <ArticleHeader>
@@ -35,7 +39,7 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
         <ArticleHeaderContent>
           <User label="Username" variant="large" />
           <ArticleDatas>
-            <IconLink label="User" type="username" color="violet" onClick={() => id} />
+            <IconLink label="User" type="username" color="violet" onClick={handleShowUser} />
             <IconLink
               label={createdTimestamp.toString()}
               type="timestamp"
