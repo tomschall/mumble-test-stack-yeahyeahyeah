@@ -1,5 +1,6 @@
 import tw from 'twin.macro';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import {
   Avatar,
@@ -10,14 +11,20 @@ import {
   Paragraph,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 
-export interface MumbleSingleProps {
+type MumbleSingleProps = {
   id: string;
   createdTimestamp: number;
   mediaUrl: string;
   text: string;
-}
+};
 
 export const MumbleSingleView: React.FC<MumbleSingleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
+  const router = useRouter();
+
+  const handleShowUser = () => {
+    router.push(`/profilepage`);
+  };
+
   return (
     <ArticleMumble id={id}>
       <ArticleHeader>
@@ -25,7 +32,7 @@ export const MumbleSingleView: React.FC<MumbleSingleProps> = ({ id, createdTimes
         <ArticleHeaderContent>
           <User label="Username" variant="large" />
           <ArticleDatas>
-            <IconLink label="User" type="username" color="violet" />
+            <IconLink label="User" type="username" color="violet" onClick={handleShowUser} />
             <IconLink
               label={'timestamp'}
               type="timestamp"
