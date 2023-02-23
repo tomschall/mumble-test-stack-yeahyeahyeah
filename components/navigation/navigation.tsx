@@ -24,8 +24,6 @@ export const Navi: React.FC = () => {
     setOpen((open) => !open);
   };
 
-  console.log({ open });
-
   return (
     <>
       <Navigation mbSpacing="32">

@@ -1,6 +1,8 @@
 import tw from 'twin.macro';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import 'dayjs/locale/de-ch';
+import dayjs from 'dayjs';
 
 import {
   Avatar,
@@ -21,7 +23,6 @@ export interface MumbleProps {
 
 export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
   const router = useRouter();
-
   const handleCommentMumbleSingleView = (id: string) => {
     router.push(`/mumble/${id}`);
   };
@@ -29,6 +30,8 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
   const handleShowUser = () => {
     router.push(`/profilepage`);
   };
+
+  const convertedTime = dayjs(createdTimestamp).locale('de-ch').format('DD.MM.YYYY, HH:MM:ss');
 
   return (
     <ArticleMumble id={id}>
@@ -41,7 +44,7 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
           <ArticleDatas>
             <IconLink label="User" type="username" color="violet" onClick={handleShowUser} />
             <IconLink
-              label={createdTimestamp.toString()}
+              label={convertedTime}
               type="timestamp"
               color="slate"
               href="/"
