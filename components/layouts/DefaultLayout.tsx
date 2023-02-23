@@ -1,9 +1,15 @@
 import tw from 'twin.macro';
+import { Navi } from '../navigation';
 
 export type IDefaultLayout = React.DOMAttributes<HTMLDivElement>;
 
 export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
-  return <LayoutStyles>{children}</LayoutStyles>;
+  return (
+    <LayoutStyles>
+      <Navi />
+      {children}
+    </LayoutStyles>
+  );
 };
 
 const LayoutStyles = tw.div`

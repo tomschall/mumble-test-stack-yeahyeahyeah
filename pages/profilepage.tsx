@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import Navi from './includes/navi';
 import {
   Switch,
   Container,
@@ -87,59 +86,54 @@ export default function Profilepage() {
 
   return (
     <>
-      <UploadForm
-        onDropCallBack={onDropCallBack}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        fileUploadError={fileUploadError}
-      />
-      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64">
-        <Navi />
-        <div tw="container py-16">
-          <div tw="flex flex-col justify-between">
-            <Switch
-              options={[
-                {
-                  label: 'Deine Mumbles',
-                  value: 'mumbles',
-                },
-                {
-                  label: 'Deine Likes',
-                  value: 'likes',
-                },
-              ]}
-              value="mumbles"
-              fCallBack={(value: string) => console.log(`${value} clicked`)}
-            />
-          </div>
+      <Container layout="plain">
+        <UploadForm
+          onDropCallBack={onDropCallBack}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          fileUploadError={fileUploadError}
+        />
+
+        <Switch
+          options={[
+            {
+              label: 'Deine Mumbles',
+              value: 'mumbles',
+            },
+            {
+              label: 'Deine Likes',
+              value: 'likes',
+            },
+          ]}
+          value="mumbles"
+          fCallBack={(value: string) => console.log(`${value} clicked`)}
+        />
+
+        <Heading tag="h3" size="default" label="Empfohlene User" mbSpacing="16" color="dark" />
+        <div tw="flex flex-row flex-wrap gap-12 mb-32">{users}</div>
+        <div tw="mb-32">
+          <Heading tag="h3" size="default" label="Empfohlene Mumbles" mbSpacing="16" color="dark" />
+          <TextBox
+            variant="write"
+            user={{
+              label: 'Hey, was läuft?',
+              avatar: {
+                src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                alt: 'Family Guy goes Mumble',
+                onImageClick: () => console.log('avatar clicked'),
+              },
+            }}
+            form={{
+              errorMessage: errorMessage,
+              placeholder: 'Hast du uns etwas mitzuteilen?',
+            }}
+            setInputValue={setInputValue}
+            inputValue={inputValue}
+            sendCallback={addText}
+            uploadCallback={handleUpload}
+          />
         </div>
-        <Container layout="plain">
-          <Heading tag="h3" size="default" label="Empfohlene User" mbSpacing="16" color="dark" />
-          <div tw="flex flex-row flex-wrap gap-12 mb-32">{users}</div>
-          <div tw="mb-32">
-            <Heading tag="h3" size="default" label="Empfohlene Mumbles" mbSpacing="16" color="dark" />
-            <TextBox
-              variant="write"
-              user={{
-                label: 'Hey, was läuft?',
-                avatar: {
-                  src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                  alt: 'Family Guy goes Mumble',
-                  onImageClick: () => console.log('avatar clicked'),
-                },
-              }}
-              form={{
-                errorMessage: errorMessage,
-                placeholder: 'Hast du uns etwas mitzuteilen?',
-              }}
-              setInputValue={setInputValue}
-              inputValue={inputValue}
-              sendCallback={addText}
-              uploadCallback={handleUpload}
-            />
-          </div>
-        </Container>
-      </div>
+      </Container>
     </>
   );
 }

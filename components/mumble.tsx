@@ -1,5 +1,6 @@
 import tw from 'twin.macro';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import {
   Avatar,
@@ -19,14 +20,22 @@ export interface MumbleProps {
 }
 
 export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
+  const router = useRouter();
+
+  const handleCommentMumbleSingleView = (id: string) => {
+    router.push(`/mumble/${id}`);
+  };
+
   return (
     <ArticleMumble id={id}>
-      <ArticleHeader tw="">
-        <Avatar variant="medium" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Username" />
+      <ArticleHeader>
+        <Link href="/profilepage" title="username" target="_self">
+          <Avatar variant="medium" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Username" />
+        </Link>
         <ArticleHeaderContent>
           <User label="Username" variant="large" />
           <ArticleDatas>
-            <IconLink label="User" type="username" color="violet" href="/" legacyBehavior passHref linkComponent={Link} />
+            <IconLink label="User" type="username" color="violet" onClick={() => id} />
             <IconLink
               label={createdTimestamp.toString()}
               type="timestamp"
@@ -43,7 +52,7 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
       <Paragraph text={text} mbSpacing="16" />
       {mediaUrl && <ImageContainer src={mediaUrl} alt={text} />}
       <ArticleInteraction>
-        <CommentButton quantity={0} />
+        <CommentButton quantity={0} onClick={() => handleCommentMumbleSingleView(id)} />
         <LikeButton favourite={false} quantity={0} onClick={() => console.log('Like clicked')} />
       </ArticleInteraction>
     </ArticleMumble>

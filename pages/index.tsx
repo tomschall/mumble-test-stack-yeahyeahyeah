@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { Navi } from '@/components/navigation';
 import { WelcomeText } from '@/components/welcome-text';
 import { TextBoxComponent } from '@/components/textbox';
 import { useState } from 'react';
@@ -21,7 +20,7 @@ export default function Page({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [mumbles, setMumbles] = useState(initialMumbles);
   const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(initialCount);
+  const [count] = useState(initialCount);
   const [hasMore, setHasMore] = useState(initialMumbles.length < count);
 
   if (error) {
@@ -40,31 +39,28 @@ export default function Page({
   };
 
   return (
-    <>
-      <Navi />
-      <Container layout="plain">
-        <div tw="mb-16">
-          <WelcomeText />
-          <TextBoxComponent />
-        </div>
+    <Container layout="plain">
+      <div tw="mb-16">
+        <WelcomeText />
+        <TextBoxComponent />
+      </div>
 
-        {mumbles.map((mumble) => (
-          <MumblePost
-            id={mumble.id}
-            key={mumble.id}
-            createdTimestamp={mumble.createdTimestamp}
-            mediaUrl={mumble.mediaUrl}
-            text={mumble.text}
-          />
-        ))}
+      {mumbles.map((mumble) => (
+        <MumblePost
+          id={mumble.id}
+          key={mumble.id}
+          createdTimestamp={mumble.createdTimestamp}
+          mediaUrl={mumble.mediaUrl}
+          text={mumble.text}
+        />
+      ))}
 
-        {hasMore ? (
-          <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
-        ) : (
-          ''
-        )}
-      </Container>
-    </>
+      {hasMore ? (
+        <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
+      ) : (
+        ''
+      )}
+    </Container>
   );
 }
 export const getServerSideProps: GetServerSideProps<PageProps> = async ({ req }: GetServerSidePropsContext) => {
