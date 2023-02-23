@@ -4,10 +4,7 @@ import debounce from 'lodash.debounce';
 
 export const FormSettings: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
-  const [isOpen, setModalOpen] = useState(open);
   const [errorMessage, setErrorMessage] = useState<string>('');
-
-  console.log({ isOpen, open });
 
   const handlePressEnter = () => {
     if (inputValue === '') {
