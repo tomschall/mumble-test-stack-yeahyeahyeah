@@ -1,10 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Button, InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 
 export const FormSettings: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('');
+  const [isOpen, setModalOpen] = useState(open);
   const [errorMessage, setErrorMessage] = useState<string>('');
+
+  console.log({ isOpen, open });
 
   const handlePressEnter = () => {
     if (inputValue === '') {
@@ -55,6 +58,16 @@ export const FormSettings: React.FC = () => {
         onPressEnter={handlePressEnter}
         data-testid={'email'}
       />
+      <div tw="flex flex-col sm:flex-row justify-between items-center gap-16">
+        <Button
+          label="Abbrechen"
+          icon="cancel"
+          color="slate"
+          width="full"
+          onClick={() => console.log('close modal clicked')}
+        />
+        <Button label="Speichern" icon="send" color="violet" width="full" />
+      </div>
     </>
   );
 };

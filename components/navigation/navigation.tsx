@@ -81,7 +81,7 @@ export const Navi: React.FC = () => {
           </NavigationRow>
         </NavigationColumn>
       </Navigation>
-      <Modal label="Settings" isOpen={open} onClick={handleClick} onClose={handleClose}>
+      <Modal label="Settings" isOpen={open} onClose={handleClose}>
         <FormSettings />
       </Modal>
     </>
