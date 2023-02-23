@@ -1,13 +1,13 @@
-import { Heading, MumbleLogo, Paragraph } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Heading, Paragraph } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 
 const PageNotFound: React.FC = () => {
   return (
-    <div tw="flex flex-col justify-center items-center w-full h-full">
+    <div tw="flex flex-col justify-center items-center w-full h-full px-16">
       <Heading
         label="Upps... Seite nicht gefunden."
         size="default"
         color="violet"
-        tag="h1"
+        tag="h3"
         alignment="center"
         mbSpacing="0"
       />

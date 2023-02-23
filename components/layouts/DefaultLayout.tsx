@@ -1,4 +1,5 @@
 import tw from 'twin.macro';
+import { Footer } from '../content/footer';
 import { Navi } from '../navigation/navigation';
 
 export type IDefaultLayout = React.DOMAttributes<HTMLDivElement>;
@@ -9,6 +10,7 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
       <LayoutStyles>
         <Navi />
         {children}
+        <Footer />
       </LayoutStyles>
     </>
   );
@@ -17,9 +19,10 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
 const LayoutStyles = tw.div`
   flex
   flex-col
-  justify-center
+  justify-start
   items-start
   w-full
+  h-screen
   pb-64
   bg-slate-200
 `;
