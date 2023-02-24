@@ -15,6 +15,14 @@ export type Mumble = {
   createdTimestamp: number;
 };
 
+export type User = {
+  id: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  avatarUrl: string;
+};
+
 export type RawMumble = Omit<Mumble, 'createdTimestamp'>;
 
 export type QwackerMumbleResponse = {
