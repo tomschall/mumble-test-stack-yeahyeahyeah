@@ -16,12 +16,25 @@ import {
 
 export interface MumbleProps {
   id: string;
-  createdTimestamp: number;
-  mediaUrl: string;
+  creator: string;
   text: string;
+  mediaUrl: string;
+  createdTimestamp: number;
+  likeCount: number;
+  likedByUser: boolean;
+  replyCount: number;
 }
 
-export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
+export const MumblePost: React.FC<MumbleProps> = ({
+  id,
+  creator,
+  text,
+  mediaUrl,
+  createdTimestamp,
+  likeCount,
+  likedByUser,
+  replyCount,
+}) => {
   const router = useRouter();
   const handleCommentMumbleSingleView = (id: string) => {
     router.push(`/mumble/${id}`);
@@ -36,13 +49,13 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
   return (
     <ArticleMumble id={id}>
       <ArticleHeader>
-        <Link href="/profilepage" title="username" target="_self">
-          <Avatar variant="medium" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Username" />
+        <Link href={`/profile/${creator}`} title={creator} target="_self">
+          <Avatar variant="medium" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt={creator} />
         </Link>
         <ArticleHeaderContent>
           <User label="Username" variant="large" />
           <ArticleDatas>
-            <IconLink label="User" type="username" color="violet" onClick={handleShowUser} />
+            <IconLink label={creator} type="username" color="violet" onClick={handleShowUser} />
             <IconLink
               label={convertedTime}
               type="timestamp"
@@ -59,8 +72,8 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
       <Paragraph text={text} mbSpacing="16" />
       {mediaUrl && <ImageContainer src={mediaUrl} alt={text} />}
       <ArticleInteraction>
-        <CommentButton quantity={0} onClick={() => handleCommentMumbleSingleView(id)} />
-        <LikeButton favourite={false} quantity={0} onClick={() => console.log('Like clicked')} />
+        <CommentButton quantity={replyCount} onClick={() => handleCommentMumbleSingleView(id)} />
+        <LikeButton favourite={likedByUser} quantity={replyCount} onClick={() => console.log('Like clicked')} />
       </ArticleInteraction>
     </ArticleMumble>
   );

@@ -48,11 +48,15 @@ export default function Page({
 
       {mumbles.map((mumble) => (
         <MumblePost
-          id={mumble.id}
           key={mumble.id}
-          createdTimestamp={mumble.createdTimestamp}
-          mediaUrl={mumble.mediaUrl}
+          id={mumble.id}
+          creator={mumble.creator}
           text={mumble.text}
+          mediaUrl={mumble.mediaUrl}
+          createdTimestamp={mumble.createdTimestamp}
+          likeCount={mumble.likeCount}
+          likedByUser={mumble.likedByUser}
+          replyCount={mumble.replyCount}
         />
       ))}
 
