@@ -40,8 +40,8 @@ export const MumblePost: React.FC<MumbleProps> = ({
     router.push(`/mumble/${id}`);
   };
 
-  const handleShowUser = () => {
-    router.push(`/profilepage`);
+  const handleShowUser = (id: string) => {
+    router.push(`/profile/${id}`);
   };
 
   const convertedTime = dayjs(createdTimestamp).locale('de-ch').format('DD.MM.YYYY HH:MM:ss');
@@ -55,7 +55,7 @@ export const MumblePost: React.FC<MumbleProps> = ({
         <ArticleHeaderContent>
           <User label="Username" variant="large" />
           <ArticleDatas>
-            <IconLink label={creator} type="username" color="violet" onClick={handleShowUser} />
+            <IconLink label={creator} type="username" color="violet" onClick={() => handleShowUser(creator)} />
             <IconLink
               label={convertedTime}
               type="timestamp"
