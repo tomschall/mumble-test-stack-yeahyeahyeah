@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
         styles: [
           <React.Fragment key="styles">
             <Html lang="de">
-              <body tw="bg-pink-500">
+              <body>
                 {initialProps.styles}
                 {sheet.getStyleElement()}
                 <NextScript />
