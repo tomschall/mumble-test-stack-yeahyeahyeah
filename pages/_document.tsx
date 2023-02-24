@@ -1,6 +1,6 @@
 // pages/_document.tsx
 import React from 'react';
-import Document, { DocumentContext } from 'next/document';
+import Document, { Html, DocumentContext, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -18,8 +18,13 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: [
           <React.Fragment key="styles">
-            {initialProps.styles}
-            {sheet.getStyleElement()}
+            <Html lang="de">
+              <body>
+                {initialProps.styles}
+                {sheet.getStyleElement()}
+                <NextScript />
+              </body>
+            </Html>
           </React.Fragment>,
         ],
       };

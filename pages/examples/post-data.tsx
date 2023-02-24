@@ -1,11 +1,8 @@
-import React from 'react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
-import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { WelcomeText } from '@/components/content/welcome-text';
-import { TextBoxComponent } from '@/components/form/textbox';
+import Image from 'next/image';
 import { useState } from 'react';
+import { NewMumble } from '../components/mumble/new-mumble';
 import { fetchMumbles, Mumble } from '../services/qwacker';
-import { MumblePost } from '@/components/mumble/mumble';
 
 type PageProps = {
   count: number;
@@ -20,7 +17,7 @@ export default function Page({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [mumbles, setMumbles] = useState(initialMumbles);
   const [loading, setLoading] = useState(false);
-  const [count] = useState(initialCount);
+  const [count, setCount] = useState(initialCount);
   const [hasMore, setHasMore] = useState(initialMumbles.length < count);
 
   if (error) {
@@ -29,7 +26,7 @@ export default function Page({
 
   const loadMore = async () => {
     const { count, mumbles: newMumbles } = await fetchMumbles({
-      limit: 2,
+      limit: 1,
       offset: mumbles.length,
     });
 
@@ -39,33 +36,42 @@ export default function Page({
   };
 
   return (
-    <Container layout="plain">
-      <div tw="mb-16">
-        <WelcomeText />
-        <TextBoxComponent />
-      </div>
+    <div className="w-60 m-auto my-10">
+      <NewMumble
+        addMumble={(mumble: Mumble) => {
+          setMumbles([mumble, ...mumbles]);
+          setCount(count + 1);
+        }}
+      />
 
-      {mumbles.map((mumble) => (
-        <MumblePost
-          id={mumble.id}
-          key={mumble.id}
-          createdTimestamp={mumble.createdTimestamp}
-          mediaUrl={mumble.mediaUrl}
-          text={mumble.text}
-        />
-      ))}
-
+      <h2 className="text-lg mt-10">{count} mumbles</h2>
+      <ul>
+        {mumbles.map((mumble) => (
+          <li key={mumble.id} className="bg-gray-100 rounded px-4 py-2 mt-2">
+            <p className="text-sm">
+              {mumble.text} ({mumble.createdTimestamp})
+            </p>
+            {mumble.mediaUrl && (
+              <figure className="relative block max-w-full h-64 my-2">
+                <Image src={mumble.mediaUrl} alt={mumble.text} fill style={{ objectFit: 'cover' }} />
+              </figure>
+            )}
+          </li>
+        ))}
+      </ul>
       {hasMore ? (
-        <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
+        <button onClick={() => loadMore()} disabled={loading} className="bg-indigo-400 px-2 py-1 rounded-lg mt-4">
+          {loading ? '...' : 'Load more'}
+        </button>
       ) : (
         ''
       )}
-    </Container>
+    </div>
   );
 }
 export const getServerSideProps: GetServerSideProps<PageProps> = async ({ req }: GetServerSidePropsContext) => {
   try {
-    const { count, mumbles } = await fetchMumbles({ limit: 2 });
+    const { count, mumbles } = await fetchMumbles({ limit: 1 });
 
     return { props: { count, mumbles } };
   } catch (error) {
