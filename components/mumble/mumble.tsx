@@ -31,7 +31,7 @@ export const MumblePost: React.FC<MumbleProps> = ({ id, createdTimestamp, mediaU
     router.push(`/profilepage`);
   };
 
-  const convertedTime = dayjs(createdTimestamp).locale('de-ch').format('DD.MM.YYYY, HH:MM:ss');
+  const convertedTime = dayjs(createdTimestamp).locale('de-ch').format('DD.MM.YYYY HH:MM:ss');
 
   return (
     <ArticleMumble id={id}>
