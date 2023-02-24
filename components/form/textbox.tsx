@@ -55,7 +55,7 @@ export const TextBoxComponent: React.FC = () => {
   }, [inputValue, setErrorDebounced]);
 
   return (
-    <>
+    <div tw="mb-16">
       <TextBox
         variant="write"
         user={{
@@ -80,6 +80,6 @@ export const TextBoxComponent: React.FC = () => {
         setShowModal={setShowModal}
         fileUploadError={fileUploadError}
       />
-    </>
+    </div>
   );
 };

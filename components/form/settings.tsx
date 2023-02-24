@@ -29,7 +29,7 @@ export const FormSettings: React.FC = () => {
   }, [inputValue, setErrorDebounced]);
 
   return (
-    <>
+    <form>
       <InputForm
         label="Name und Vorname"
         editType={'input'}
@@ -65,6 +65,6 @@ export const FormSettings: React.FC = () => {
         />
         <Button label="Speichern" icon="send" color="violet" width="full" />
       </div>
-    </>
+    </form>
   );
 };

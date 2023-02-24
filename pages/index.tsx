@@ -1,11 +1,14 @@
 import React from 'react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { useState } from 'react';
+
+import { fetchMumbles } from '../services/fetchMumbles';
+import { Mumble } from 'services/qwacker';
+
 import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { MumblePost } from '@/components/mumble/mumble';
 import { WelcomeText } from '@/components/content/welcome-text';
 import { TextBoxComponent } from '@/components/form/textbox';
-import { useState } from 'react';
-import { fetchMumbles, Mumble } from '../services/qwacker';
-import { MumblePost } from '@/components/mumble/mumble';
 
 type PageProps = {
   count: number;
@@ -40,10 +43,8 @@ export default function Page({
 
   return (
     <Container layout="plain">
-      <div tw="mb-16">
-        <WelcomeText />
-        <TextBoxComponent />
-      </div>
+      <WelcomeText />
+      <TextBoxComponent />
 
       {mumbles.map((mumble) => (
         <MumblePost
