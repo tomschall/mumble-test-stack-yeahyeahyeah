@@ -11,7 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
   switch (method) {
     case 'GET':
       // Get data
-      res.status(200).json({ name: `Profile view ${query.id}` });
+      res.status(200).json({ name: `Profile view ${query.alias}` });
       break;
 
     case 'POST':
