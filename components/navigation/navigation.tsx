@@ -32,26 +32,34 @@ export const Navi: React.FC = () => {
             <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
           </Link>
           <NavigationRow>
-            <NaviButton
-              label="Profile"
-              variant="profile"
-              href="/profilepage"
-              legacyBehavior={true}
-              passHref={true}
-              linkComponent={Link}
-            >
-              <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
-            </NaviButton>
-            <NaviButton
-              label="Settings"
-              variant="default"
-              icon="settings"
-              onClick={handleClick}
-              href=""
-              legacyBehavior={true}
-              passHref={false}
-              linkComponent={Link}
-            />
+            {session && (
+              <>
+                <NaviButton
+                  label="Profile"
+                  variant="profile"
+                  href="/profilepage"
+                  legacyBehavior={true}
+                  passHref={true}
+                  linkComponent={Link}
+                >
+                  <Avatar
+                    alt="Small Avatar"
+                    src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+                    variant="small"
+                  />
+                </NaviButton>
+                <NaviButton
+                  label="Settings"
+                  variant="default"
+                  icon="settings"
+                  onClick={handleClick}
+                  href=""
+                  legacyBehavior={true}
+                  passHref={false}
+                  linkComponent={Link}
+                />
+              </>
+            )}
             {!session && (
               <NaviButton
                 label="Login"

@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSession } from 'next-auth/react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { useState } from 'react';
 
 import { fetchMumbles } from '../services/fetchMumbles';
 import { Mumble } from 'services/qwacker';
 
-import { Button, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Button, Container, Heading } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { MumblePost } from '@/components/mumble/mumble';
 import { WelcomeText } from '@/components/content/welcome-text';
 import { TextBoxComponent } from '@/components/form/textbox';
@@ -21,6 +22,7 @@ export default function Page({
   mumbles: initialMumbles,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const { data: session } = useSession();
   const [mumbles, setMumbles] = useState(initialMumbles);
   const [loading, setLoading] = useState(false);
   const [count] = useState(initialCount);
@@ -43,27 +45,33 @@ export default function Page({
 
   return (
     <Container layout="plain">
-      <WelcomeText />
-      <TextBoxComponent />
+      {session ? (
+        <>
+          <WelcomeText />
+          <TextBoxComponent />
 
-      {mumbles.map((mumble) => (
-        <MumblePost
-          key={mumble.id}
-          id={mumble.id}
-          creator={mumble.creator}
-          text={mumble.text}
-          mediaUrl={mumble.mediaUrl}
-          createdTimestamp={mumble.createdTimestamp}
-          likeCount={mumble.likeCount}
-          likedByUser={mumble.likedByUser}
-          replyCount={mumble.replyCount}
-        />
-      ))}
+          {mumbles.map((mumble) => (
+            <MumblePost
+              key={mumble.id}
+              id={mumble.id}
+              creator={mumble.creator}
+              text={mumble.text}
+              mediaUrl={mumble.mediaUrl}
+              createdTimestamp={mumble.createdTimestamp}
+              likeCount={mumble.likeCount}
+              likedByUser={mumble.likedByUser}
+              replyCount={mumble.replyCount}
+            />
+          ))}
 
-      {hasMore ? (
-        <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
+          {hasMore ? (
+            <Button onClick={() => loadMore()} disabled={loading} color="violet" label={loading ? '...' : 'Load more'} />
+          ) : (
+            ''
+          )}
+        </>
       ) : (
-        ''
+        <Heading label="Not authorized" size="default" tag="h1" alignment="center" mbSpacing="32" color="pink" />
       )}
     </Container>
   );
