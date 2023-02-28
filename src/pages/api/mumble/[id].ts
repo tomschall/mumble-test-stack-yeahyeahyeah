@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
@@ -12,7 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
   switch (method) {
     case 'GET':
       // Get data
-      res.status(200).json({ name: 'Home API route' });
+      res.status(200).json({ name: `Mumble detail ${query.id}` });
       break;
 
     case 'POST':

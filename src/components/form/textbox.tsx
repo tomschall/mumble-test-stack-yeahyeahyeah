@@ -67,7 +67,7 @@ export const TextBoxComponent: React.FC = () => {
         }}
         form={{
           errorMessage: errorMessage,
-          placeholder: 'Hast du uns etwas mitzuteilen?',
+          placeholder: 'Deine Meinung zählt ...',
         }}
         setInputValue={setInputValue}
         inputValue={inputValue}

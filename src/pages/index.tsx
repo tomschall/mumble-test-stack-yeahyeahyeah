@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
-import { fetchMumbles } from '../../services/fetchMumbles';
 import { Mumble } from 'services/qwacker';
+import { fetchMumbles } from '../../services/fetchMumbles';
 import { Button, Container, Heading } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { MumblePost, WelcomeText, TextBoxComponent } from '@/components';
 

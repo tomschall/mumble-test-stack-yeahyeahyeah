@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
@@ -7,12 +6,12 @@ type Data = {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const { method, query } = req;
-  console.log({ method, query });
+  console.info({ method, query });
 
   switch (method) {
     case 'GET':
       // Get data
-      res.status(200).json({ name: 'Home API route' });
+      res.status(200).json({ name: `Profile view ${query.id}` });
       break;
 
     case 'POST':
