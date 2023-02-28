@@ -18,7 +18,7 @@ type MumbleSingleProps = {
   text: string;
 };
 
-export const MumbleSingleView: React.FC<MumbleSingleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
+export const MumbleDetail: React.FC<MumbleSingleProps> = ({ id, createdTimestamp, mediaUrl, text }) => {
   const router = useRouter();
 
   const handleShowUser = () => {

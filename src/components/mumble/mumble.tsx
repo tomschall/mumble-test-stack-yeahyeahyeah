@@ -36,7 +36,7 @@ export const MumblePost: React.FC<MumbleProps> = ({
   replyCount,
 }) => {
   const router = useRouter();
-  const handleCommentMumbleSingleView = (id: string) => {
+  const handleComment = (id: string) => {
     router.push(`/mumble/${id}`);
   };
 
@@ -72,8 +72,8 @@ export const MumblePost: React.FC<MumbleProps> = ({
       <Paragraph text={text} mbSpacing="16" />
       {mediaUrl && <ImageContainer src={mediaUrl} alt={text} />}
       <ArticleInteraction>
-        <CommentButton quantity={replyCount} onClick={() => handleCommentMumbleSingleView(id)} />
-        <LikeButton favourite={likedByUser} quantity={replyCount} onClick={() => console.log('Like clicked')} />
+        <CommentButton type="comment" quantity={replyCount} onClick={() => handleComment(id)} />
+        <LikeButton favourite={likedByUser} quantity={likeCount} onClick={() => console.log('Like clicked')} />
       </ArticleInteraction>
     </ArticleMumble>
   );

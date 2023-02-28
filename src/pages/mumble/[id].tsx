@@ -1,9 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import tw from 'twin.macro';
-import { MumbleSingleView } from '@/components/mumble/mumble-single';
-
+import { MumbleDetail, TextBoxComponent } from '@/components';
 import { Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { TextBoxComponent } from '@/components/form/textbox';
 
 type Props = {
   mumble: {
@@ -14,7 +12,7 @@ type Props = {
 export default function MumblePage({ mumble }: Props): InferGetServerSidePropsType<typeof getServerSideProps> {
   return (
     <Container layout="plain">
-      <MumbleSingleView
+      <MumbleDetail
         id={mumble.id}
         createdTimestamp={6546464654}
         mediaUrl={'https://picsum.photos/640/360'}

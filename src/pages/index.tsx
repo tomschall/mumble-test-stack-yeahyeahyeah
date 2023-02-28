@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
-import { useState } from 'react';
-
-import { fetchMumbles } from '../services/fetchMumbles';
+import { fetchMumbles } from '../../services/fetchMumbles';
 import { Mumble } from 'services/qwacker';
-
 import { Button, Container, Heading } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { MumblePost } from '@/components/mumble/mumble';
-import { WelcomeText } from '@/components/content/welcome-text';
-import { TextBoxComponent } from '@/components/form/textbox';
+import { MumblePost, WelcomeText, TextBoxComponent } from '@/components';
 
 type PageProps = {
   count: number;

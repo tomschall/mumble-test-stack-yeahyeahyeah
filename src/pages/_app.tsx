@@ -2,9 +2,8 @@
 import React from 'react';
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app';
-import GlobalStyles from '../styles/GlobalStyles';
-import { DefaultLayout } from '@/components/layouts/DefaultLayout';
-import '../styles/globals.css';
+import GlobalStyles from '@/styles/GlobalStyles';
+import { DefaultLayout } from '../layouts';
 
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
   <SessionProvider session={session}>
