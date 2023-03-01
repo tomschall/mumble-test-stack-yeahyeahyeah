@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "prettier --check",
+    "format": "prettier --write",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -61,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "npm run lint --config .eslintrc.json && npx lint-staged && git add -A .",
       "pre-push": "lint-staged"
     }
   },
