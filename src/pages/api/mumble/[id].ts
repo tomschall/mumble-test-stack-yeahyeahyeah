@@ -10,12 +10,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
   switch (method) {
     case 'GET':
-      // Get data
       res.status(200).json({ name: `Mumble detail ${query.id}` });
       break;
 
     case 'POST':
-      // Post data
       res.status(200).json({ name: 'POST successful' });
       break;
 

@@ -11,12 +11,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
   switch (method) {
     case 'GET':
-      // Get data
       res.status(200).json({ name: 'Home API route' });
       break;
 
     case 'POST':
-      // Post data
       res.status(200).json({ name: 'POST successful' });
       break;
 
