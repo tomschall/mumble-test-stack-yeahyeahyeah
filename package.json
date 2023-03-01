@@ -63,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint --config .eslintrc.json && npx lint-staged && git add -A .",
+      "pre-commit": "npm run lint --config .eslintrc.json && git add -A .",
       "pre-push": "lint-staged"
     }
   },
