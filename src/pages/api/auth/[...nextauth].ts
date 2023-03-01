@@ -60,10 +60,10 @@ export default NextAuth({
 
       return token;
     },
-    async session({ session, token }) {
-      session.user = token.user;
-      session.accessToken = token.accessToken;
-      return session;
-    },
+    // async session({ session, token }) {
+    //   session.user = token.user;
+    //   session.accessToken = token.accessToken;
+    //   return session;
+    // },
   },
 });
