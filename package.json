@@ -1,12 +1,14 @@
 {
-  "name": "demo-app",
+  "name": "app-yeahyeahyeah",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "prettier --check",
+    "format": "prettier --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@next/font": "13.1.1",
@@ -45,6 +47,8 @@
     "babel-plugin-styled-components": "^2.0.7",
     "babel-plugin-twin": "^1.1.0",
     "dependency-cruiser": "^12.10.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "lodash.debounce": "^4.0.8",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",
@@ -56,5 +60,16 @@
       "config": "node_modules/@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.config.js",
       "preset": "styled-components"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint --config .eslintrc.json && git add -A .",
+      "pre-push": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "eslint"
+    ]
   }
 }

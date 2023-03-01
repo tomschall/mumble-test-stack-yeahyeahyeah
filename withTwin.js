@@ -4,10 +4,8 @@ const path = require('path');
 // The folders containing files importing twin.macro
 // We have to add the mumble npm package also, because we also import twin.macro inside the package
 const includedDirs = [
-  path.resolve(__dirname, 'pages'),
-  path.resolve(__dirname, 'styles'),
-  path.resolve(__dirname, 'components'),
-  path.resolve(__dirname, 'node_modules/@smartive-education/design-system-component-library-yeahyeahyeah/dist'),
+  path.resolve(__dirname, './src'),
+  path.resolve(__dirname, './node_modules/@smartive-education/design-system-component-library-yeahyeahyeah/dist'),
 ];
 
 module.exports = function withTwin(nextConfig) {
